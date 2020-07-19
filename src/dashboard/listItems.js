@@ -10,26 +10,35 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
+import { NavLink } from 'react-router-dom';
+import { SIGNIN_URL, DASHBOARD_BASE_URL } from '../routes/URLMap'
+
+
 export const mainListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      {/* <ListItemText primary="Dashboard" /> */}
+      {/* <ListItemText primary="Dashboard"></ListItemText> */}
+      <NavLink to={DASHBOARD_BASE_URL}>Dashboard</NavLink>
     </ListItem>
+    
     <ListItem button>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Orders" />
     </ListItem>
+    
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem>
+
     {/* <ListItem button>
       <ListItemIcon>
         <BarChartIcon />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
+import {signin} from "../api/auth"
+import { setToken } from '../utils/auth';
+import { DASHBOARD_BASE_URL } from '../routes/URLMap';
 
 function Copyright() {
   return (
@@ -46,7 +50,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // const handleInputChange = event => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   console.log(event);
+  //   // this.setState({ [name]: value} );
+  // }
+
   const classes = useStyles();
 
   return (
@@ -61,6 +75,13 @@ export default function SignIn() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
+            value={email}
+            onChange={ event => 
+              // setEmail( {email: event.target.value} )
+              // console.log(event.target.value)
+              setEmail(event.target.value)
+            }
+
             variant="outlined"
             margin="normal"
             required
@@ -72,6 +93,11 @@ export default function SignIn() {
             autoFocus
           />
           <TextField
+            value={password}
+            onChange={ event => 
+              setPassword(event.target.value)
+            }
+
             variant="outlined"
             margin="normal"
             required
@@ -87,6 +113,21 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
+            onClick={
+              event => {
+                event.preventDefault();
+                signin(email, password)
+                .then(data => {
+                  const { token } = data;
+                  setToken(token);
+                  // console.log(props.location);
+                  const state = props.location;
+                  const redirectTo = state && state.from;
+                  props.history.replace(redirectTo || DASHBOARD_BASE_URL)
+                })
+              }
+            }
+
             type="submit"
             fullWidth
             variant="contained"
