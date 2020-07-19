@@ -15,7 +15,8 @@ import Container from '@material-ui/core/Container';
 
 import {signin} from "../api/auth"
 import { setToken } from '../utils/auth';
-import { DASHBOARD_BASE_URL } from '../routes/URLMap';
+import { DASHBOARD_BASE_URL, SIGNUP_URL } from '../routes/URLMap';
+import { NavLink } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -53,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [isLoading, changeLoadingState] = useState(false);
 
   // const handleInputChange = event => {
   //   const value = event.target.value;
@@ -116,6 +118,7 @@ export default function SignIn(props) {
             onClick={
               event => {
                 event.preventDefault();
+                // changeLoadingState(isLoading = true)
                 signin(email, password)
                 .then(data => {
                   const { token } = data;
@@ -124,6 +127,9 @@ export default function SignIn(props) {
                   const state = props.location;
                   const redirectTo = state && state.from;
                   props.history.replace(redirectTo || DASHBOARD_BASE_URL)
+                })
+                .catch(error => {
+
                 })
               }
             }
@@ -143,9 +149,12 @@ export default function SignIn(props) {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              {/* <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
-              </Link>
+              </Link> */}
+              <NavLink to={SIGNUP_URL}>
+                Don't have an account? Sign Up
+              </NavLink>
             </Grid>
           </Grid>
         </form>

@@ -5,10 +5,14 @@ export const isAuthenticated = () => {
     return !!jwt;
 }
 
+export const setToken = (token) => {
+    localStorage.setItem(JWT_TOKEN_NAME, token);
+}
+
 export const getToken = () => {
     return localStorage.getItem(JWT_TOKEN_NAME);
 }
 
-export const setToken = (token) => {
-    localStorage.setItem(JWT_TOKEN_NAME, token);
+export const removeToken = () => {
+    localStorage.removeItem(JWT_TOKEN_NAME);
 }

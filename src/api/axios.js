@@ -12,11 +12,11 @@ const appendAuthToken = config => {
 export const get = (url, config={}) => 
     axios.get(url, appendAuthToken(config));
    
-export const post = (url, config={}) =>
-    axios.post(url, appendAuthToken(config));
+export const post = (url, data, config={}) =>
+    axios.post(url, data, appendAuthToken(config));
 
-export const put = (url, config={}) => 
-    axios.put(url, appendAuthToken(config));
+export const put = (url, data, config={}) => 
+    axios.put(url, data, appendAuthToken(config));
 
 export const del = (url, config={}) =>
     axios.delete(url, appendAuthToken(config));

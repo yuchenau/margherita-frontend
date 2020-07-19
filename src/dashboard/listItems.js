@@ -2,16 +2,18 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+// import ListSubheader from '@material-ui/core/ListSubheader';
 
-import { NavLink } from 'react-router-dom';
-import { SIGNIN_URL, DASHBOARD_BASE_URL } from '../routes/URLMap'
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import FaceIcon from '@material-ui/icons/Face';
+import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
+import StyleIcon from '@material-ui/icons/Style';
+
+// import BarChartIcon from '@material-ui/icons/BarChart';
+// import LayersIcon from '@material-ui/icons/Layers';
+// import AssignmentIcon from '@material-ui/icons/Assignment';
+
+
 
 
 export const mainListItems = (
@@ -20,23 +22,29 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      {/* <ListItemText primary="Dashboard" /> */}
-      {/* <ListItemText primary="Dashboard"></ListItemText> */}
-      <NavLink to={DASHBOARD_BASE_URL}>Dashboard</NavLink>
+      <ListItemText primary="Dashboard" />
     </ListItem>
-    
+
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
+        <FaceIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
+    </ListItem>
+
+    <ListItem button>
+      <ListItemIcon>
+        <LocalPizzaIcon />
+      </ListItemIcon>
+      <ListItemText primary="Menu" />
+    </ListItem>
+    
+    
+    <ListItem button>
+      <ListItemIcon>
+        <StyleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Orders" />
     </ListItem>
 
     {/* <ListItem button>
@@ -44,8 +52,9 @@ export const mainListItems = (
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
-    </ListItem> */}
-    {/* <ListItem button>
+    </ListItem>
+
+    <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>

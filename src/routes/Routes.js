@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom'
-import { SIGNIN_URL, DASHBOARD_BASE_URL } from './URLMap';
+import { SIGNUP_URL, SIGNIN_URL, DASHBOARD_BASE_URL } from './URLMap';
+import SignUp from '../signup/SignUp';
 import SignIn from '../signin/SignIn';
 import Dashboard from '../dashboard/Dashboard';
 import ProtectedRoute from './ProtectedRoute';
@@ -10,9 +11,10 @@ const Routes = () => {
         <div>
             <Switch>
                 <Redirect exact from='/' to="dashboard" />
-                {/* <Route exact path={SIGNUP_URL} component={} /> */}
+                <Route path={SIGNUP_URL} component={SignUp} />
                 <Route path={SIGNIN_URL} component={SignIn} />
                 <ProtectedRoute path={DASHBOARD_BASE_URL} component={Dashboard} />
+                {/* <Route path={}></Route> */}
             </Switch>
         </div>
     )

@@ -22,6 +22,11 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import LocalPizzaOutlinedIcon from '@material-ui/icons/LocalPizzaOutlined';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+
+import { removeToken } from '../utils/auth'
+import { SIGNIN_URL } from '../routes/URLMap';
 
 function Copyright() {
   return (
@@ -117,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -142,14 +147,27 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Welcome to Margherita!
+          <LocalPizzaOutlinedIcon />
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title} style={{ fontFamily: 'Permanent Marker' }}>
+            Welcome to Margherita Admin!
           </Typography>
+         
           <IconButton color="inherit">
             <Badge badgeContent={0} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
+          <IconButton color="inherit" onClick={() => {
+            removeToken();
+            props.history.push(SIGNIN_URL)
+          }}>
+            <ExitToAppOutlinedIcon />
+            
+          </IconButton>
+          {/* <Button variant="contained" onClick={() => {
+            removeToken();
+            props.history.push(SIGNIN_URL)
+          }}>Sign Out</Button> */}
         </Toolbar>
       </AppBar>
       <Drawer
