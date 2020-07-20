@@ -5,61 +5,72 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import ListSubheader from '@material-ui/core/ListSubheader';
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import FaceIcon from '@material-ui/icons/Face';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 import StyleIcon from '@material-ui/icons/Style';
 
-// import BarChartIcon from '@material-ui/icons/BarChart';
-// import LayersIcon from '@material-ui/icons/Layers';
-// import AssignmentIcon from '@material-ui/icons/Assignment';
+import './styles/nav.css'
+import { NavLink } from 'react-router-dom';
 
+import BarChartIcon from '@material-ui/icons/BarChart';
+import LayersIcon from '@material-ui/icons/Layers';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
-
+import { DASHBOARD_BASE_URL, MENU_BASE_URL, ORDER_BASE_URL } from '../routes/URLMap';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
+      
+    <NavLink to={DASHBOARD_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        Dashboard
+      </ListItem>
+    </NavLink>
+    
 
     <ListItem button>
       <ListItemIcon>
-        <FaceIcon />
+        <SupervisedUserCircleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem>
-
-    <ListItem button>
-      <ListItemIcon>
-        <LocalPizzaIcon />
-      </ListItemIcon>
-      <ListItemText primary="Menu" />
-    </ListItem>
+     
+    <NavLink to={MENU_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <LocalPizzaIcon />
+        </ListItemIcon>
+        Menus
+      </ListItem>
+    </NavLink>    
     
+    <NavLink to={ORDER_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <StyleIcon />
+        </ListItemIcon>
+        Orders
+      </ListItem>
+    </NavLink>
     
-    <ListItem button>
-      <ListItemIcon>
-        <StyleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
 
     {/* <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
-    </ListItem>
+    </ListItem> */}
 
-    <ListItem button>
+    {/* <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Integrations" />
     </ListItem> */}
+
   </div>
 );
 

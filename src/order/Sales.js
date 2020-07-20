@@ -10,22 +10,19 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 
-import Chart from '../components/Chart';
-import Deposits from '../components/Deposits';
 import { mainListItems, secondaryListItems } from '../components/listItems';
 import Orders from '../components/Orders';
 
 import LocalPizzaOutlinedIcon from '@material-ui/icons/LocalPizzaOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+
 import { removeToken } from '../utils/auth'
 import { SIGNIN_URL } from '../routes/URLMap';
 
@@ -123,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard(props) {
+export default function Sales(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -152,12 +149,6 @@ export default function Dashboard(props) {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title} style={{ fontFamily: 'Permanent Marker' }}>
             Welcome to Margherita Admin!
           </Typography>
-         
-          {/* <IconButton color="inherit">
-            <Badge badgeContent={0} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton> */}
 
           <IconButton color="inherit" onClick={() => {
             removeToken();
@@ -165,10 +156,6 @@ export default function Dashboard(props) {
           }}>
             <ExitToAppOutlinedIcon />
           </IconButton>
-          {/* <Button variant="contained" onClick={() => {
-            removeToken();
-            props.history.push(SIGNIN_URL)
-          }}>Sign Out</Button> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -193,18 +180,21 @@ export default function Dashboard(props) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+              
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <Chart />
               </Paper>
-            </Grid>
+            </Grid> */}
+            
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            {/* <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
-            </Grid>
+            </Grid> */}
+
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
@@ -212,9 +202,11 @@ export default function Dashboard(props) {
               </Paper>
             </Grid>
           </Grid>
+
           <Box pt={4}>
             <Copyright />
           </Box>
+
         </Container>
       </main>
     </div>
