@@ -1,18 +1,18 @@
-const JWT_TOKEN_NAME = "margherita-jwt"
+const JWT_TOKEN_NAME = "margherita-jwt";
 
 export const isAuthenticated = () => {
-    const jwt = localStorage.getItem(JWT_TOKEN_NAME);
-    return !!jwt;
-}
+  const jwt = localStorage.getItem(JWT_TOKEN_NAME);
+  return !!jwt;
+};
 
 export const setToken = (token) => {
-    localStorage.setItem(JWT_TOKEN_NAME, token);
-}
+  localStorage.setItem(JWT_TOKEN_NAME, token);
+};
 
 export const getToken = () => {
-    return localStorage.getItem(JWT_TOKEN_NAME);
-}
+  return localStorage.getItem(JWT_TOKEN_NAME);
+};
 
 export const removeToken = () => {
-    localStorage.removeItem(JWT_TOKEN_NAME);
-}
+  localStorage.removeItem(JWT_TOKEN_NAME);
+};

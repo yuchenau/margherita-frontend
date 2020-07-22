@@ -1,26 +1,27 @@
-import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-// import ListSubheader from '@material-ui/core/ListSubheader';
+import React from "react";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+// import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from "@material-ui/core/ListSubheader";
 
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
-import StyleIcon from '@material-ui/icons/Style';
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import LocalPizzaIcon from "@material-ui/icons/LocalPizza";
+// import SettingsInputSvideoIcon from '@material-ui/icons/SettingsInputSvideo';
+import LocalBarIcon from "@material-ui/icons/LocalBar";
+import StyleIcon from "@material-ui/icons/Style";
+import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 
-import './styles/nav.css'
-import { NavLink } from 'react-router-dom';
-
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-
-import { DASHBOARD_BASE_URL, MENU_BASE_URL, ORDER_BASE_URL } from '../routes/URLMap';
+import "./styles/nav.css";
+import { NavLink } from "react-router-dom";
+import {
+  DASHBOARD_BASE_URL,
+  PIZZA_BASE_URL,
+  ORDER_BASE_URL,
+  CUSTOMER_BASE_URL,
+} from "../routes/URLMap";
 
 export const mainListItems = (
   <div>
-      
     <NavLink to={DASHBOARD_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
@@ -29,71 +30,56 @@ export const mainListItems = (
         Dashboard
       </ListItem>
     </NavLink>
-    
 
-    <ListItem button>
-      <ListItemIcon>
-        <SupervisedUserCircleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-     
-    <NavLink to={MENU_BASE_URL} className="nav">
+    <ListSubheader inset>Products</ListSubheader>
+    <NavLink to={PIZZA_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
           <LocalPizzaIcon />
         </ListItemIcon>
-        Menus
-      </ListItem>
-    </NavLink>    
-    
-    <NavLink to={ORDER_BASE_URL} className="nav">
-      <ListItem button>
-        <ListItemIcon>
-          <StyleIcon />
-        </ListItemIcon>
-        Orders
+        Pizzas
       </ListItem>
     </NavLink>
-    
 
-    {/* <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem> */}
+    {/* <NavLink to={MENU_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <SettingsInputSvideoIcon />
+        </ListItemIcon>
+        Pasta
+      </ListItem>
+    </NavLink> */}
 
-    {/* <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem> */}
-
+    <NavLink to={PIZZA_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <LocalBarIcon />
+        </ListItemIcon>
+        Sides/Desserts/Drinks
+      </ListItem>
+    </NavLink>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    {/* <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem> */}
+    <ListSubheader inset>Management</ListSubheader>
+    <NavLink to={ORDER_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <StyleIcon />
+        </ListItemIcon>
+        Recent Orders
+      </ListItem>
+    </NavLink>
+
+    <NavLink to={CUSTOMER_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <SupervisedUserCircleIcon />
+        </ListItemIcon>
+        Customers
+      </ListItem>
+    </NavLink>
   </div>
 );

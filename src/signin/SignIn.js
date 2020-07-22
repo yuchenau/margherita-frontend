@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React, { useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
-import {signin} from "../api/auth"
-import { setToken } from '../utils/auth';
-import { DASHBOARD_BASE_URL, SIGNUP_URL } from '../routes/URLMap';
-import { NavLink } from 'react-router-dom';
+import { signin } from "../api/auth";
+import { setToken } from "../utils/auth";
+import { DASHBOARD_BASE_URL, SIGNUP_URL } from "../routes/URLMap";
+import { NavLink } from "react-router-dom";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -34,16 +34,16 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -78,12 +78,11 @@ export default function SignIn(props) {
         <form className={classes.form} noValidate>
           <TextField
             value={email}
-            onChange={ event => 
+            onChange={(event) =>
               // setEmail( {email: event.target.value} )
               // console.log(event.target.value)
               setEmail(event.target.value)
             }
-
             variant="outlined"
             margin="normal"
             required
@@ -96,10 +95,7 @@ export default function SignIn(props) {
           />
           <TextField
             value={password}
-            onChange={ event => 
-              setPassword(event.target.value)
-            }
-
+            onChange={(event) => setPassword(event.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -115,25 +111,20 @@ export default function SignIn(props) {
             label="Remember me"
           />
           <Button
-            onClick={
-              event => {
-                event.preventDefault();
-                // changeLoadingState(isLoading = true)
-                signin(email, password)
-                .then(data => {
+            onClick={(event) => {
+              event.preventDefault();
+              // changeLoadingState(isLoading = true)
+              signin(email, password)
+                .then((data) => {
                   const { token } = data;
                   setToken(token);
                   // console.log(props.location);
                   const state = props.location;
                   const redirectTo = state && state.from;
-                  props.history.replace(redirectTo || DASHBOARD_BASE_URL)
+                  props.history.replace(redirectTo || DASHBOARD_BASE_URL);
                 })
-                .catch(error => {
-
-                })
-              }
-            }
-
+                .catch((error) => {});
+            }}
             type="submit"
             fullWidth
             variant="contained"
@@ -152,9 +143,7 @@ export default function SignIn(props) {
               {/* <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link> */}
-              <NavLink to={SIGNUP_URL}>
-                Don't have an account? Sign Up
-              </NavLink>
+              <NavLink to={SIGNUP_URL}>Don't have an account? Sign Up</NavLink>
             </Grid>
           </Grid>
         </form>

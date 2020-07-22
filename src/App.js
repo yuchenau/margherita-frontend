@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.css';
-import Routes from './routes/Routes';
+import React from "react";
+import "./App.css";
+import Routes from "./routes/Routes";
 // import { isAuthenticated } from './utils/auth';
 // import SignIn from './signin/SignIn';
 
