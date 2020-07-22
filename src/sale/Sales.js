@@ -22,7 +22,6 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
 
 import { mainListItems, secondaryListItems } from "../components/listItems";
-import Orders from "../components/Orders";
 
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";

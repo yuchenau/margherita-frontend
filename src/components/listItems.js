@@ -1,13 +1,13 @@
 import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-// import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from "@material-ui/core/ListSubheader";
 
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import LocalPizzaIcon from "@material-ui/icons/LocalPizza";
+import FastfoodIcon from '@material-ui/icons/Fastfood';
 // import SettingsInputSvideoIcon from '@material-ui/icons/SettingsInputSvideo';
-import LocalBarIcon from "@material-ui/icons/LocalBar";
+// import LocalBarIcon from "@material-ui/icons/LocalBar";
 import StyleIcon from "@material-ui/icons/Style";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 
@@ -41,23 +41,23 @@ export const mainListItems = (
       </ListItem>
     </NavLink>
 
-    {/* <NavLink to={MENU_BASE_URL} className="nav">
+    <NavLink to={PIZZA_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
-          <SettingsInputSvideoIcon />
+          <FastfoodIcon />
         </ListItemIcon>
-        Pasta
+        Others
       </ListItem>
-    </NavLink> */}
+    </NavLink>
 
-    <NavLink to={PIZZA_BASE_URL} className="nav">
+    {/* <NavLink to={PIZZA_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
           <LocalBarIcon />
         </ListItemIcon>
         Sides/Desserts/Drinks
       </ListItem>
-    </NavLink>
+    </NavLink> */}
   </div>
 );
 

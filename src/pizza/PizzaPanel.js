@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // Components
 import { Grid, ButtonGroup, Button } from "@material-ui/core";
-import MediaCard from "../components/MediaCard";
+import ProductCard from './components/ProductCard'
 
 // Functions
 import { loadProducts } from "../api/product";
@@ -16,13 +16,12 @@ export default function PizzaPanel(props) {
   useEffect(() => {
     loadProducts().then((response) => {
       setProducts(response);
-      // console.log(response);
     });
   });
 
   return (
     <div>
-      <Grid container spacing={3}>
+      <Grid container spacing={2} alignItems="center" style={{ marginBottom:15 }}>
         <Grid xs={6}>
           <ButtonGroup variant="contained">
             <Button>Premium</Button>
@@ -35,25 +34,19 @@ export default function PizzaPanel(props) {
           <Button variant="contained">Add New Product</Button>
         </Grid>
       </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <MediaCard />
-        </Grid>
-        <Grid item xs={4}>
-          <MediaCard />
-        </Grid>
-        <Grid item xs={4}>
-          <MediaCard />
-        </Grid>
-        <Grid item xs={4}>
-          <MediaCard />
-        </Grid>
-        <Grid item xs={4}>
-          <MediaCard />
-        </Grid>
-        <Grid item xs={4}>
-          <MediaCard />
-        </Grid>
+      <Grid container spacing={2}>
+        {
+          products.map(product => (
+            <Grid item xs={3}>
+              <ProductCard 
+                avatar={product.avatar}
+                name={product.name}
+                price={product.price}
+                calorie={product.calorie}
+              />
+            </Grid>
+          ))
+        }
       </Grid>
     </div>
   );
