@@ -8,6 +8,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+import { NavLink as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link'
+import {PIZZA_BASE_URL} from '../../routes/URLMap'
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 280,
@@ -21,6 +25,7 @@ export default function ProductCard(props) {
   const classes = useStyles();
 
   return (
+    <Link underline='none' component={RouterLink} to={`${PIZZA_BASE_URL}/${props.id}`}>
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -44,13 +49,17 @@ export default function ProductCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {/* <Button size="small" color="primary">
-          Share
+        <Button size="small" variant="contained" color="default">
+          View
         </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button> */}
+        <Button size="small" variant="contained" color="primary">
+          Edit
+        </Button>
+        <Button size="small" variant="contained" color="secondary">
+          Delete
+        </Button>
       </CardActions>
     </Card>
+    </Link>
   );
 }

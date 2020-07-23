@@ -46,7 +46,7 @@ export const mainListItems = (
         <ListItemIcon>
           <FastfoodIcon />
         </ListItemIcon>
-        Others
+        Snacks
       </ListItem>
     </NavLink>
 

@@ -23,7 +23,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        JR Academy
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -55,13 +55,6 @@ export default function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [isLoading, changeLoadingState] = useState(false);
-
-  // const handleInputChange = event => {
-  //   const value = event.target.value;
-  //   const name = event.target.name;
-  //   console.log(event);
-  //   // this.setState({ [name]: value} );
-  // }
 
   const classes = useStyles();
 
