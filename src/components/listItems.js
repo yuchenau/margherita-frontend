@@ -5,7 +5,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import LocalPizzaIcon from "@material-ui/icons/LocalPizza";
-import FastfoodIcon from '@material-ui/icons/Fastfood';
+import FastfoodIcon from "@material-ui/icons/Fastfood";
 // import SettingsInputSvideoIcon from '@material-ui/icons/SettingsInputSvideo';
 // import LocalBarIcon from "@material-ui/icons/LocalBar";
 import StyleIcon from "@material-ui/icons/Style";

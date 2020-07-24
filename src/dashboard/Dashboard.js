@@ -16,20 +16,17 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 
-// Material Icons
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
 
-// Children Components
-import Chart from "../components/Chart";
-import Deposits from "../components/Deposits";
 import { mainListItems, secondaryListItems } from "../components/listItems";
-import Orders from "../components/Orders";
+// import Chart from "../components/Chart";
+// import Deposits from "../components/Deposits";
+// import Orders from "../components/Orders";
 
-// Functions
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";
 import { Avatar } from "@material-ui/core";
@@ -47,7 +44,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {

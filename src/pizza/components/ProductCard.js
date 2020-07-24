@@ -8,13 +8,14 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-import { NavLink as RouterLink } from 'react-router-dom'
-import Link from '@material-ui/core/Link'
-import {PIZZA_BASE_URL} from '../../routes/URLMap'
+import { NavLink as RouterLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
+import { PIZZA_BASE_URL } from "../../routes/URLMap";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 280,
+    maxWidth: 350,
+    minWidth: 250,
   },
   media: {
     height: 120,
@@ -25,33 +26,40 @@ export default function ProductCard(props) {
   const classes = useStyles();
 
   return (
-    <Link underline='none' component={RouterLink} to={`${PIZZA_BASE_URL}/${props.id}`}>
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.avatar}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="h2">
-            {props.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Price: {props.price}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Calorie: {props.calorie} J
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <Link
+        underline="none"
+        component={RouterLink}
+        to={`${PIZZA_BASE_URL}/${props.id}`}
+      >
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={props.avatar}
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h2">
+              {props.name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Price: {props.price}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Calorie: {props.calorie} J
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Description: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua.
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
       <CardActions>
-        <Button size="small" variant="contained" color="default">
+        {/* <Button size="small" variant="contained" color="default">
           View
-        </Button>
+        </Button> */}
         <Button size="small" variant="contained" color="primary">
           Edit
         </Button>
@@ -60,6 +68,5 @@ export default function ProductCard(props) {
         </Button>
       </CardActions>
     </Card>
-    </Link>
   );
 }

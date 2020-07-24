@@ -1,55 +1,88 @@
 import React, { useState, useEffect } from "react";
-// Components
-import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
-import ProductCard from './components/ProductCard'
-
-// Functions
+import {
+  Grid,
+  Button,
+  ButtonGroup,
+  Typography,
+  Chip,
+  GridListTile,
+} from "@material-ui/core";
+import ProductCard from "./components/ProductCard";
 import { loadProducts } from "../api/product";
-import { keys } from "@material-ui/core/styles/createBreakpoints";
+import FadeIn from "react-fade-in";
+import Lottie from "react-lottie";
+// import ReactLoading from "react-loading";
+import * as legoData from "../utils/legoloading.json";
 
 export default function PizzaPanel(props) {
   const [products, setProducts] = useState([]);
-  const [isLoading] = useState(false);
-  const [error] = useState(null);
+  const [LoadingDone, setLoadingDone] = useState(undefined);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: legoData.default,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   useEffect(() => {
-    loadProducts().then((response) => {
-      console.log(response);
-      setProducts(response);
-    });
-  },[]);
+    setTimeout(() => {
+      loadProducts().then((response) => {
+        // console.log(response);
+        setLoadingDone(true);
+        setProducts(response);
+      });
+    }, 3000);
+  }, []);
 
   return (
     <div>
-      <Grid container spacing={2} alignItems="center" style={{ marginBottom:15 }}>
-        <Grid xs={6}>
-          <Typography variant="p" display="inline" style={{ marginRight:10 }}>Filter</Typography>
-          <ButtonGroup variant="contained">
-            <Button>Premium</Button>
-            <Button>Loaded</Button>
-            <Button>Favourites</Button>
-            <Button>Classics</Button>
-          </ButtonGroup>
-        </Grid>
-        <Grid xs={6}>
-          <Button variant="contained" color="primary">Add New Product</Button>
-        </Grid>
-      </Grid>
-      <Grid container spacing={2}>
-        {
-          products.map(product => (
-            <Grid item xs={3}>
-              <ProductCard
-                id={product._id}
-                avatar={product.avatar}
-                name={product.name}
-                price={product.price}
-                calorie={product.calorie}
-              />
+      {!LoadingDone ? (
+        <FadeIn>
+          <div class="d-flex justify-content-center align-items-center">
+            <Lottie options={defaultOptions} height={300} width={300} />
+          </div>
+        </FadeIn>
+      ) : (
+        <div>
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            style={{ marginBottom: 15 }}
+          >
+            <Grid style={{ marginLeft: 10 }}>
+              <Chip label="Premium" clickable />
+              <Chip label="Loaded" clickable />
+              <Chip label="Favourites" clickable />
+              <Chip label="Classics" clickable />
             </Grid>
-          ))
-        }
-      </Grid>
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginLeft: 10 }}
+            >
+              Add New Product
+            </Button>
+          </Grid>
+
+          <Grid container spacing={2}>
+            {products.map((product) => (
+              <Grid item xs>
+                <ProductCard
+                  id={product._id}
+                  avatar={product.avatar}
+                  name={product.name}
+                  price={product.price}
+                  calorie={product.calorie}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      )}
     </div>
   );
 }

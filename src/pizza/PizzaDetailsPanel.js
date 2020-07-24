@@ -26,8 +26,6 @@ import { mainListItems, secondaryListItems } from "../components/listItems";
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";
 
-import PizzaPanel from "./PizzaPanel";
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -128,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Pizzas(props) {
+export default function PizzaDetailsPanel(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -139,6 +137,7 @@ export default function Pizzas(props) {
   };
 
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const productId = props.match.params.id;
 
   return (
     <div className={classes.root}>
@@ -210,7 +209,8 @@ export default function Pizzas(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <PizzaPanel />
+          <h1>This is pizza details for {productId}</h1>
+          {console.log(props)}
           <Box pt={4}>
             <Copyright />
           </Box>
