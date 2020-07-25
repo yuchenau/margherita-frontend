@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import {
   Grid,
   Button,
-  ButtonGroup,
-  Typography,
-  Chip,
-  GridListTile,
+  Chip
 } from "@material-ui/core";
+import Pagination from '@material-ui/lab/Pagination';
 import ProductCard from "./components/ProductCard";
 import { loadProducts } from "../api/product";
 import FadeIn from "react-fade-in";
@@ -41,7 +39,7 @@ export default function PizzaPanel(props) {
     <div>
       {!LoadingDone ? (
         <FadeIn>
-          <div class="d-flex justify-content-center align-items-center">
+          <div className="d-flex justify-content-center align-items-center">
             <Lottie options={defaultOptions} height={300} width={300} />
           </div>
         </FadeIn>
@@ -67,10 +65,9 @@ export default function PizzaPanel(props) {
               Add New Product
             </Button>
           </Grid>
-
           <Grid container spacing={2}>
             {products.map((product) => (
-              <Grid item xs>
+              <Grid item xs key={product.name}>
                 <ProductCard
                   id={product._id}
                   avatar={product.avatar}
@@ -81,6 +78,7 @@ export default function PizzaPanel(props) {
               </Grid>
             ))}
           </Grid>
+          <Pagination count={5} color="primary" />
         </div>
       )}
     </div>

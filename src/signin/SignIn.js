@@ -106,7 +106,6 @@ export default function SignIn(props) {
           <Button
             onClick={(event) => {
               event.preventDefault();
-              // changeLoadingState(isLoading = true)
               signin(email, password)
                 .then((data) => {
                   const { token } = data;
