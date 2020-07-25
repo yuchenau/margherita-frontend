@@ -11,7 +11,7 @@ import SignUp from "../signup/SignUp";
 import SignIn from "../signin/SignIn";
 import Dashboard from "../dashboard/Dashboard";
 import Pizzas from "../pizza/Pizzas";
-import PizzaDetailsPanel from "../pizza/PizzaDetailsPanel";
+import PizzaDetails from "../pizza/PizzaDetails";
 import Sales from "../sale/Sales";
 import ProtectedRoute from "./ProtectedRoute";
 import ProtectedRoutes from "./ProtectedRoute";
@@ -26,7 +26,7 @@ const Routes = () => {
         <ProtectedRoute path={DASHBOARD_BASE_URL} component={Dashboard} />
         <ProtectedRoutes
           path={`${PIZZA_BASE_URL}/:id`}
-          component={PizzaDetailsPanel}
+          component={PizzaDetails}
         />
         <ProtectedRoutes path={PIZZA_BASE_URL} component={Pizzas} />
         <Route path={ORDER_BASE_URL} component={Sales} />
