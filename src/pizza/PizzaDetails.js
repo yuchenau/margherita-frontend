@@ -26,7 +26,7 @@ import { mainListItems, secondaryListItems } from "../components/listItems";
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";
 
-import PizzaDetailsPanel from './PizzaDetailsPanel';
+import PizzaDetailsPanel from "./PizzaDetailsPanel";
 
 function Copyright() {
   return (
@@ -140,6 +140,7 @@ export default function PizzaDetails(props) {
 
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const productId = props.match.params.id;
+  const pathname = props.location.pathname;
 
   return (
     <div className={classes.root}>
@@ -211,9 +212,8 @@ export default function PizzaDetails(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {/* <h1>This is pizza details for {productId} </h1> */}
-          {/* {console.log(props)} */}
-          <PizzaDetailsPanel productId={productId} />
+          {/* { console.log(props)} */}
+          <PizzaDetailsPanel productId={productId} pathname = {pathname} />
           <Box pt={4}>
             <Copyright />
           </Box>

@@ -12,6 +12,7 @@ import SignIn from "../signin/SignIn";
 import Dashboard from "../dashboard/Dashboard";
 import Pizzas from "../pizza/Pizzas";
 import PizzaDetails from "../pizza/PizzaDetails";
+import PizzaEdit from "../pizza/PizzaEdit";
 import Sales from "../sale/Sales";
 import ProtectedRoute from "./ProtectedRoute";
 import ProtectedRoutes from "./ProtectedRoute";
@@ -25,8 +26,14 @@ const Routes = () => {
         <Route path={SIGNIN_URL} component={SignIn} />
         <ProtectedRoute path={DASHBOARD_BASE_URL} component={Dashboard} />
         <ProtectedRoutes
+          exact
           path={`${PIZZA_BASE_URL}/:id`}
           component={PizzaDetails}
+        />
+        <ProtectedRoute
+          exact
+          path={`${PIZZA_BASE_URL}/:id/edit`}
+          component={PizzaEdit}
         />
         <ProtectedRoutes path={PIZZA_BASE_URL} component={Pizzas} />
         <Route path={ORDER_BASE_URL} component={Sales} />

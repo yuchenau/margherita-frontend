@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  Grid,
-  Button,
-  Chip
-} from "@material-ui/core";
-import Pagination from '@material-ui/lab/Pagination';
+import { Grid, Button, Chip } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
 import ProductCard from "./components/ProductCard";
 import { loadProducts } from "../api/product";
 import FadeIn from "react-fade-in";
