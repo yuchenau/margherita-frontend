@@ -34,10 +34,6 @@ export default function ProductPanel(props) {
     },
   };
 
-  // const toggleButton = () => {
-  //   setSelected(!selected);
-  // };
-
   useEffect(() => {
     setTimeout(() => {
       loadProducts().then((response) => {
@@ -45,8 +41,12 @@ export default function ProductPanel(props) {
         setLoadingDone(true);
         setProducts(response);
       });
-    }, 3000);
+    }, 2000);
   }, []);
+
+  // const toggleButton = () => {
+  //   setSelected(!selected);
+  // };
 
   return (
     <div>

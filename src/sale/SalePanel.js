@@ -1,17 +1,43 @@
 import React from "react";
-import { Grid, Paper } from "@material-ui/core";
-import Orders from "../components/Orders";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Grid,
+  Paper,
+  Link,
+  TableContainer,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@material-ui/core";
+import EachSale from "./components/EachSale";
 
-export default function SalePanel(props) {
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+export default function SaleTable(props) {
+  const classes = useStyles();
   return (
-    <div>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper>
-            <Orders />
-          </Paper>
-        </Grid>
-      </Grid>
-    </div>
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Actions</TableCell>
+            <TableCell align="left">Orders</TableCell>
+            <TableCell align="left">Customer</TableCell>
+            <TableCell align="left">Address</TableCell>
+            <TableCell align="left">Order Status</TableCell>
+            <TableCell align="left">Placed At</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <EachSale />
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }

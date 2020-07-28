@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Grid, Typography, TextField, Button } from "@material-ui/core";
 
@@ -22,13 +22,11 @@ const useStyles = makeStyles({
 
 export default function ProductEditPanel(props) {
   const classes = useStyles();
+  const [name, setName] = useState(props.product.name);
 
   return (
     <Paper className={classes.root}>
-      {/* { console.log(props) } */}
-      {/* <Typography variant="h6" gutterBottom>
-                Edit Product Information
-            </Typography> */}
+      {console.log(props.product)}
       <img
         className={classes.media}
         src={props.product.avatar}
@@ -36,49 +34,46 @@ export default function ProductEditPanel(props) {
       />
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Name:</Typography>
-        <TextField
+        <Typography>{props.product.name}</Typography>
+        {/* <TextField
           required
-          id="productName"
-          name="productName"
-          // label="Product Name"
+          name="name"
           value={props.product.name}
-          fullWidth
           className={classes.textfield}
-        />
+        /> */}
       </Grid>
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Price:</Typography>
-        <TextField
+        <Typography>{props.product.price}</Typography>
+        {/* <TextField
           required
-          id="productPrice"
-          name="productPrice"
-          // label="Product Price"
+          name="price"
           value={props.product.price}
-          fullWidth
           className={classes.textfield}
-        />
+        /> */}
       </Grid>
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Calorie:</Typography>
-        <TextField
+        <Typography>{props.product.calorie}</Typography>
+        {/* <TextField
           required
-          id="productCalorie"
-          name="productCalorie"
-          // label="Product Calorie"
+          name="calorie"
           value={props.product.calorie}
-          fullWidth
           className={classes.textfield}
-        />
+        /> */}
       </Grid>
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Description:</Typography>
-        <TextField
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Typography>
+        {/* <TextField
           value="Lorem ipsum dolor sit amet, consectetur adipiscing
                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua."
-          fullWidth
           className={classes.textfield}
-        />
+        /> */}
       </Grid>
       <Button variant="contained" color="primary" className={classes.button}>
         Save
