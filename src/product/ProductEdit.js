@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -26,7 +26,8 @@ import { mainListItems, secondaryListItems } from "../components/listItems";
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";
 
-import PizzaPanel from "./PizzaPanel";
+import ProductEditPanel from "./ProductEditPanel";
+import { loadProductById } from "../api/product";
 
 function Copyright() {
   return (
@@ -128,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Pizzas(props) {
+export default function ProductDetails(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -139,6 +140,14 @@ export default function Pizzas(props) {
   };
 
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const productId = props.match.params.id;
+    loadProductById(productId).then((response) => {
+      setProduct(response);
+    });
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -210,7 +219,8 @@ export default function Pizzas(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <PizzaPanel />
+          {/* { console.log(props)} */}
+          <ProductEditPanel product={product} />
           <Box pt={4}>
             <Copyright />
           </Box>

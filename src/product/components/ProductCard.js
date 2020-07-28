@@ -7,11 +7,13 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { NavLink as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
-import { PIZZA_BASE_URL } from "../../routes/URLMap";
+import { PRODUCT_BASE_URL } from "../../routes/URLMap";
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +33,7 @@ export default function ProductCard(props) {
       <Link
         underline="none"
         component={RouterLink}
-        to={`${PIZZA_BASE_URL}/${props.id}`}
+        to={`${PRODUCT_BASE_URL}/${props.id}`}
       >
         <CardActionArea>
           <CardMedia
@@ -61,10 +63,20 @@ export default function ProductCard(props) {
         {/* <Button size="small" variant="contained" color="default">
           View
         </Button> */}
-        <Button size="small" variant="contained" color="primary">
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          startIcon={<EditIcon />}
+        >
           Edit
         </Button>
-        <Button size="small" variant="contained" color="secondary">
+        <Button
+          size="small"
+          variant="contained"
+          color="secondary"
+          startIcon={<DeleteIcon />}
+        >
           Delete
         </Button>
       </CardActions>

@@ -4,15 +4,15 @@ import {
   SIGNUP_URL,
   SIGNIN_URL,
   DASHBOARD_BASE_URL,
-  PIZZA_BASE_URL,
+  PRODUCT_BASE_URL,
   ORDER_BASE_URL,
 } from "./URLMap";
 import SignUp from "../signup/SignUp";
 import SignIn from "../signin/SignIn";
 import Dashboard from "../dashboard/Dashboard";
-import Pizzas from "../pizza/Pizzas";
-import PizzaDetails from "../pizza/PizzaDetails";
-import PizzaEdit from "../pizza/PizzaEdit";
+import Products from "../product/Products";
+import ProductDetails from "../product/ProductDetails";
+import ProductEdit from "../product/ProductEdit";
 import Sales from "../sale/Sales";
 import ProtectedRoute from "./ProtectedRoute";
 import ProtectedRoutes from "./ProtectedRoute";
@@ -27,15 +27,15 @@ const Routes = () => {
         <ProtectedRoute path={DASHBOARD_BASE_URL} component={Dashboard} />
         <ProtectedRoutes
           exact
-          path={`${PIZZA_BASE_URL}/:id`}
-          component={PizzaDetails}
+          path={`${PRODUCT_BASE_URL}/:id`}
+          component={ProductDetails}
         />
         <ProtectedRoute
           exact
-          path={`${PIZZA_BASE_URL}/:id/edit`}
-          component={PizzaEdit}
+          path={`${PRODUCT_BASE_URL}/:id/edit`}
+          component={ProductEdit}
         />
-        <ProtectedRoutes path={PIZZA_BASE_URL} component={Pizzas} />
+        <ProtectedRoutes path={PRODUCT_BASE_URL} component={Products} />
         <Route path={ORDER_BASE_URL} component={Sales} />
       </Switch>
     </div>

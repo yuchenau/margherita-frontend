@@ -26,7 +26,7 @@ import { mainListItems, secondaryListItems } from "../components/listItems";
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";
 
-import PizzaDetailsPanel from "./PizzaDetailsPanel";
+import PizzaDetailsPanel from "./ProductDetailsPanel";
 
 function Copyright() {
   return (
@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PizzaDetails(props) {
+export default function ProductDetails(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -213,7 +213,7 @@ export default function PizzaDetails(props) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           {/* { console.log(props)} */}
-          <PizzaDetailsPanel productId={productId} pathname = {pathname} />
+          <PizzaDetailsPanel productId={productId} pathname={pathname} />
           <Box pt={4}>
             <Copyright />
           </Box>

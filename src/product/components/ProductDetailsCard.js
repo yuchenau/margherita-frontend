@@ -1,51 +1,74 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { NavLink, withRouter } from "react-router-dom";
 import {
   Grid,
   Typography,
-  Card,
-  CardActionArea,
-  CardMedia,
+  // Card,
+  // CardActionArea,
+  // CardMedia,
   Button,
   CardContent,
+  Paper,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { NavLink } from "react-router-dom";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { deleteProductById } from "../../api/product";
+import { PRODUCT_BASE_URL } from "../../routes/URLMap";
 
 const useStyles = makeStyles({
-  root: {},
   media: {
+    margin: 15,
     height: 180,
   },
   card: {
     height: 300,
   },
   button: {
-    marginTop: 10
+    marginTop: 10,
   },
   navlink: {
     textDecoration: "none",
-    color: "white"
-  }
+    color: "white",
+  },
 });
 
-export default function ProductDetailsCard(props) {
+function ProductDetailsCard(props) {
   const classes = useStyles();
-  const [pathname] = useState(props.pathname)
+  const [pathname] = useState(props.pathname);
+  const productId = props.product._id;
+
+  const deleteProduct = () => {
+    deleteProductById(productId)
+      .then(() => {
+        props.history.push(PRODUCT_BASE_URL);
+      })
+      .then(() => {
+        console.log("DELETE SUCCESS");
+      });
+  };
 
   return (
-    <div>
+    <Paper>
+      {/* {console.log(props.product._id)}
+      {console.log(props)} */}
       <Grid container spacing={3}>
         <Grid item xs={4}>
           {/* <Paper elevation={1} className={classes.card}> */}
-          <Card>
-            <CardActionArea>
-              <CardMedia
+          {/* <Card> */}
+          {/* <CardActionArea> */}
+          {/* <CardMedia
                 className={classes.media}
                 image={props.product.avatar}
                 title="Contemplative Reptile"
-              />
-            </CardActionArea>
-          </Card>
+              /> */}
+          <img
+            className={classes.media}
+            src={props.product.avatar}
+            alt="product figure"
+          />
+          {/* </CardActionArea> */}
+          {/* </Card> */}
           {/* </Paper> */}
         </Grid>
         <Grid item xs={8}>
@@ -68,26 +91,34 @@ export default function ProductDetailsCard(props) {
             <Typography variant="body2" color="textSecondary" component="p">
               Ingredient: Lorem ipsum dolor sit amet
             </Typography>
-            { console.log(props.pathname) }
             <Button
               variant="contained"
               color="primary"
               className={classes.button}
+              startIcon={<EditIcon />}
             >
-              <NavLink to={`${pathname}/edit`} className={classes.navlink} >Edit</NavLink>
+              <NavLink to={`${pathname}/edit`} className={classes.navlink}>
+                Edit
+              </NavLink>
             </Button>
             <Button
               variant="contained"
               color="secondary"
               className={classes.button}
+              startIcon={<DeleteIcon />}
               style={{ marginLeft: 10 }}
+              onClick={deleteProduct}
             >
-              <NavLink to={`${pathname}/edit`} className={classes.navlink} >Delete</NavLink>
+              <NavLink to={`${pathname}/edit`} className={classes.navlink}>
+                Delete
+              </NavLink>
             </Button>
           </CardContent>
           {/* </Paper> */}
         </Grid>
       </Grid>
-    </div>
+    </Paper>
   );
 }
+
+export default withRouter(ProductDetailsCard);

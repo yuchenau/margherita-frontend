@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { loadProductById } from "../api/product";
 import ProductDetailsCard from "./components/ProductDetailsCard";
 
-export default function PizzaDetailsPanel(props) {
+export default function ProductDetailsPanel(props) {
   const productId = props.productId;
   const pathname = props.pathname;
   const [product, setProduct] = useState({});
