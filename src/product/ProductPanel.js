@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
-// import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-// import AddIcon from "@material-ui/icons/Add";
+import { Grid, Button } from "@material-ui/core";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Pagination from "@material-ui/lab/Pagination";
 import ProductCard from "./components/ProductCard";
 import { loadProducts } from "../api/product";
-
-// Loading spin
+// loading spin
 import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
 // import ReactLoading from "react-loading";
 import * as legoData from "../utils/legoloading.json";
 
 export default function ProductPanel(props) {
-  // const classes = useStyles();
   const [products, setProducts] = useState([]);
   const [LoadingDone, setLoadingDone] = useState(undefined);
 
@@ -50,52 +46,16 @@ export default function ProductPanel(props) {
         </FadeIn>
       ) : (
         <div>
-          {/* <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            style={{ marginBottom: 15 }}
-          >
-            <Grid style={{ marginLeft: 10 }}>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Premium Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Loaded Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Favourites Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Classics Pizza
-              </Button>
-            </Grid>
-
+          <Grid>
             <Button
               variant="contained"
               color="primary"
-              style={{ marginLeft: 20 }}
               startIcon={<AddCircleOutlineIcon />}
+              style={{ marginBottom: 20 }}
             >
               Add New Product
             </Button>
-          </Grid> */}
+          </Grid>
           <Grid container spacing={2}>
             {products.map((product) => (
               <Grid item xs key={product.name}>

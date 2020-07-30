@@ -73,11 +73,12 @@ export default function ProductEditPanel(props) {
           fullWidth
         />
       </Grid>
-      <Button 
-        variant="contained" 
-        color="primary" 
-        className={classes.button} 
-        onClick={props.updateProduct}>
+      <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        onClick={props.updateProduct}
+      >
         Save
       </Button>
     </Paper>

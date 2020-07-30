@@ -155,11 +155,10 @@ export default function ProductDetails(props) {
   };
 
   const updateProduct = () => {
-    updateProductById(productId, product)
-    .then(() => {
+    updateProductById(productId, product).then(() => {
       props.history.push(`${PRODUCT_BASE_URL}/${productId}`);
     });
-  }
+  };
 
   return (
     <div className={classes.root}>

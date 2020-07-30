@@ -14,19 +14,17 @@ import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
-import { Grid, Button } from "@material-ui/core";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import AddIcon from "@material-ui/icons/Add";
-
+// child component
 import { mainListItems, secondaryListItems } from "../components/listItems";
-
+import PizzaPanel from "./PizzaPanel";
+// token method
 import { removeToken } from "../utils/auth";
+// route variable
 import { SIGNIN_URL } from "../routes/URLMap";
 
 function Copyright() {
@@ -121,15 +119,6 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
-  buttonGroup: {
-    marginBottom: 15,
-  },
-  addnew: {
-    marginBottom: 15,
-  },
-  pizzaButton: {
-    marginLeft: 10,
-  },
 }));
 
 export default function Pizzas(props) {
@@ -212,52 +201,7 @@ export default function Pizzas(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            style={{ marginBottom: 15 }}
-          >
-            <Grid style={{ marginLeft: 10 }}>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Premium Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Loaded Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Favourites Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                variant="contained"
-                startIcon={<AddIcon />}
-              >
-                Classics Pizza
-              </Button>
-            </Grid>
-
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ marginLeft: 20 }}
-              startIcon={<AddCircleOutlineIcon />}
-            >
-              Add New Product
-            </Button>
-          </Grid>
+          <PizzaPanel />
           <Box pt={4}>
             <Copyright />
           </Box>
