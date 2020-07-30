@@ -118,13 +118,7 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeight: {
     height: 240,
-  },
-  buttonGroup: {
-    marginBottom: 15,
-  },
-  addnew: {
-    marginBottom: 15,
-  },
+  }
 }));
 
 export default function ProductDetails(props) {

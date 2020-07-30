@@ -28,7 +28,7 @@ export default function EachSale(props) {
 
   useEffect(() => {
     setOrderStatus(order.status)
-  }, [])
+  }, [order])
 
   const hanldeStatusChange = async(e) => {
     setOrderStatus(e.target.value)

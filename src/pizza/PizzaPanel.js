@@ -17,12 +17,9 @@ const useStyles = makeStyles({
   },
   pizzaButton: {
     marginLeft: 10,
-    variant: "contained",
-    color: "default",
-    startIcon: <AddIcon />
   },
   pizzaButtonSelected: {
-    marginLeft: 10, 
+    marginLeft: 10,
   },
   heading: {
     textAlign: "center",
@@ -70,8 +67,6 @@ export default function PizzaPanel(props) {
         <Grid style={{ marginLeft: 10 }}>
           <Button
             className={classes.pizzaButton}
-            variant="contained"
-            startIcon={<AddIcon />}
             onClick={() => {
               setSelectPre(!selectPre);
             }}
@@ -88,8 +83,6 @@ export default function PizzaPanel(props) {
           </Button>
           <Button
             className={classes.pizzaButton}
-            variant="contained"
-            startIcon={<AddIcon />}
             onClick={() => {
               setSelectFla(!selectFla);
             }}
@@ -98,8 +91,6 @@ export default function PizzaPanel(props) {
           </Button>
           <Button
             className={classes.pizzaButton}
-            variant="contained"
-            startIcon={<AddIcon />}
             onClick={() => {
               setSelectCla(!selectCla);
             }}

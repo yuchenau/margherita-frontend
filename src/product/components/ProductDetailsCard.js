@@ -4,9 +4,6 @@ import { NavLink, withRouter } from "react-router-dom";
 import {
   Grid,
   Typography,
-  // Card,
-  // CardActionArea,
-  // CardMedia,
   Button,
   CardContent,
   Paper,
@@ -21,9 +18,6 @@ const useStyles = makeStyles({
   media: {
     margin: 15,
     height: 180,
-  },
-  card: {
-    height: 300,
   },
   button: {
     marginTop: 10,
@@ -51,25 +45,14 @@ function ProductDetailsCard(props) {
 
   return (
     <Paper>
-      {/* {console.log(props.product._id)}
-      {console.log(props)} */}
       <Grid container spacing={3}>
         <Grid item xs={4}>
           {/* <Paper elevation={1} className={classes.card}> */}
-          {/* <Card> */}
-          {/* <CardActionArea> */}
-          {/* <CardMedia
-                className={classes.media}
-                image={props.product.avatar}
-                title="Contemplative Reptile"
-              /> */}
           <img
             className={classes.media}
             src={props.product.avatar}
             alt="product figure"
           />
-          {/* </CardActionArea> */}
-          {/* </Card> */}
           {/* </Paper> */}
         </Grid>
         <Grid item xs={8}>

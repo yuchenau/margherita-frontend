@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { getOrders } from "../api/order";
 import {
-  // Grid,
   Paper,
-  // Link,
   TableContainer,
   Table,
   TableBody,
@@ -13,7 +11,6 @@ import {
   TableRow,
 } from "@material-ui/core";
 import EachSale from "./components/EachSale";
-import Axios from "axios";
 
 const useStyles = makeStyles({
   table: {
