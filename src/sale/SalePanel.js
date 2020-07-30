@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { getOrders } from "../api/order";
 import {
-  Grid,
+  // Grid,
   Paper,
-  Link,
+  // Link,
   TableContainer,
   Table,
   TableBody,
@@ -49,7 +49,6 @@ export default function SaleTable(props) {
           {orders && orders.map(order => (
             <EachSale key={order._id} order={order}/>
           ))}
-          {/* <EachSale /> */}
         </TableBody>
       </Table>
     </TableContainer>

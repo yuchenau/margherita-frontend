@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Grid, Typography, TextField, Button } from "@material-ui/core";
+import { Paper, Grid, Typography, Button, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -22,60 +22,62 @@ const useStyles = makeStyles({
 
 export default function ProductEditPanel(props) {
   const classes = useStyles();
-  const [name, setName] = useState(props.product.name);
 
   return (
     <Paper className={classes.root}>
-      {console.log(props.product)}
       <img
         className={classes.media}
-        src={props.product.avatar}
-        alt="product image"
+        src={props.product.avatar || ""}
+        alt="product figure"
       />
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Name:</Typography>
-        <Typography>{props.product.name}</Typography>
-        {/* <TextField
+        <TextField
           required
           name="name"
-          value={props.product.name}
+          value={props.product.name || ""}
+          onChange={props.handleInputChange}
           className={classes.textfield}
-        /> */}
+          fullWidth
+        />
       </Grid>
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Price:</Typography>
-        <Typography>{props.product.price}</Typography>
-        {/* <TextField
+        <TextField
           required
           name="price"
-          value={props.product.price}
+          value={props.product.price || ""}
+          onChange={props.handleInputChange}
           className={classes.textfield}
-        /> */}
+          fullWidth
+        />
       </Grid>
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Calorie:</Typography>
-        <Typography>{props.product.calorie}</Typography>
-        {/* <TextField
+        <TextField
           required
           name="calorie"
-          value={props.product.calorie}
+          value={props.product.calorie || ""}
+          onChange={props.handleInputChange}
           className={classes.textfield}
-        /> */}
+          fullWidth
+        />
       </Grid>
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Description:</Typography>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Typography>
-        {/* <TextField
+        <TextField
           value="Lorem ipsum dolor sit amet, consectetur adipiscing
                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua."
           className={classes.textfield}
-        /> */}
+          fullWidth
+        />
       </Grid>
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button 
+        variant="contained" 
+        color="primary" 
+        className={classes.button} 
+        onClick={props.updateProduct}>
         Save
       </Button>
     </Paper>

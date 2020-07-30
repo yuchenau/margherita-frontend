@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Button } from "@material-ui/core";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import AddIcon from "@material-ui/icons/Add";
+// import { makeStyles } from "@material-ui/core/styles";
+import { Grid } from "@material-ui/core";
+// import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+// import AddIcon from "@material-ui/icons/Add";
 import Pagination from "@material-ui/lab/Pagination";
 import ProductCard from "./components/ProductCard";
 import { loadProducts } from "../api/product";
 
+// Loading spin
 import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
 // import ReactLoading from "react-loading";
 import * as legoData from "../utils/legoloading.json";
 
-const useStyles = makeStyles({
-  root: {},
-  pizzaButton: {
-    marginLeft: 10,
-  },
-});
-
 export default function ProductPanel(props) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [products, setProducts] = useState([]);
   const [LoadingDone, setLoadingDone] = useState(undefined);
-  // const [selected, setSelected] = useState(false);
 
   const defaultOptions = {
     loop: true,
@@ -37,7 +30,6 @@ export default function ProductPanel(props) {
   useEffect(() => {
     setTimeout(() => {
       loadProducts().then((response) => {
-        // console.log(response);
         setLoadingDone(true);
         setProducts(response);
       });
@@ -58,7 +50,7 @@ export default function ProductPanel(props) {
         </FadeIn>
       ) : (
         <div>
-          <Grid
+          {/* <Grid
             container
             spacing={2}
             alignItems="center"
@@ -103,7 +95,7 @@ export default function ProductPanel(props) {
             >
               Add New Product
             </Button>
-          </Grid>
+          </Grid> */}
           <Grid container spacing={2}>
             {products.map((product) => (
               <Grid item xs key={product.name}>

@@ -18,6 +18,7 @@ import {
   ORDER_BASE_URL,
   CUSTOMER_BASE_URL,
   PRODUCT_BASE_URL,
+  PIZZA_BASE_URL,
 } from "../routes/URLMap";
 
 export const mainListItems = (
@@ -49,7 +50,7 @@ export const mainListItems = (
       </ListItem>
     </NavLink>
 
-    <NavLink to={PRODUCT_BASE_URL} className="nav">
+    <NavLink to={PIZZA_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
           <img

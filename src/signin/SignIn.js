@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [isLoading, changeLoadingState] = useState(false);
 
   const classes = useStyles();
 
@@ -71,11 +70,7 @@ export default function SignIn(props) {
         <form className={classes.form} noValidate>
           <TextField
             value={email}
-            onChange={(event) =>
-              // setEmail( {email: event.target.value} )
-              // console.log(event.target.value)
-              setEmail(event.target.value)
-            }
+            onChange={(event) => setEmail(event.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -110,7 +105,6 @@ export default function SignIn(props) {
                 .then((data) => {
                   const { token } = data;
                   setToken(token);
-                  // console.log(props.location);
                   const state = props.location;
                   const redirectTo = state && state.from;
                   props.history.replace(redirectTo || DASHBOARD_BASE_URL);
@@ -132,9 +126,6 @@ export default function SignIn(props) {
               </Link>
             </Grid>
             <Grid item>
-              {/* <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link> */}
               <NavLink to={SIGNUP_URL}>Don't have an account? Sign Up</NavLink>
             </Grid>
           </Grid>

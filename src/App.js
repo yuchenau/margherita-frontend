@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
+import { Helmet } from "react-helmet";
 import Routes from "./routes/Routes";
 // import { isAuthenticated } from './utils/auth';
 // import SignIn from './signin/SignIn';
-import { Helmet } from "react-helmet";
 
 function App() {
   return (
@@ -12,7 +12,6 @@ function App() {
         <meta charSet="utf-8" />
         <title>Margherita Dashboard</title>
       </Helmet>
-      {/* {isAuthenticated() ? <Routes /> : <SignIn />} */}
       <Routes />
     </div>
   );

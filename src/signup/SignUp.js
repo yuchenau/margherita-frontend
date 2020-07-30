@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -14,7 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import { NavLink } from "react-router-dom";
-import { SIGNIN_URL } from "../routes/URLMap";
+import { SIGNIN_URL, DASHBOARD_BASE_URL } from "../routes/URLMap";
+import { signup } from "../api/auth";
+import { setToken } from "../utils/auth";
 
 function Copyright() {
   return (
@@ -51,6 +53,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp(props) {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = (event) => {
+    event.preventDefault();
+    signup(email, password)
+      .then((data) => {
+        const { token } = data;
+        setToken(token);
+      })
+      .then(() => {
+        props.history.push(DASHBOARD_BASE_URL);
+      });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -64,7 +80,7 @@ export default function SignUp(props) {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -75,8 +91,8 @@ export default function SignUp(props) {
                 label="First Name"
                 autoFocus
               />
-            </Grid>
-            <Grid item xs={12} sm={6}>
+            </Grid> */}
+            {/* <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
                 required
@@ -86,9 +102,13 @@ export default function SignUp(props) {
                 name="lastName"
                 autoComplete="lname"
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
                 variant="outlined"
                 required
                 fullWidth
@@ -100,13 +120,17 @@ export default function SignUp(props) {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
                 id="password"
+                label="Password"
+                name="password"
+                type="password"
                 autoComplete="current-password"
               />
             </Grid>
@@ -118,10 +142,7 @@ export default function SignUp(props) {
             </Grid>
           </Grid>
           <Button
-            onClick={(event) => {
-              event.preventDefault();
-              console.log(props);
-            }}
+            onClick={handleSignup}
             type="submit"
             fullWidth
             variant="contained"
@@ -132,9 +153,6 @@ export default function SignUp(props) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              {/* <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link> */}
               <NavLink to={SIGNIN_URL}>
                 Already have an account? Sign in
               </NavLink>
