@@ -14,19 +14,18 @@ import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
-
 import { mainListItems, secondaryListItems } from "../components/listItems";
-
+// token method
 import { removeToken } from "../utils/auth";
+// route variable
 import { SIGNIN_URL } from "../routes/URLMap";
-
-import PizzaPanel from "./ProductPanel";
+// child component
+import ProductPanel from "./ProductPanel";
 
 function Copyright() {
   return (
@@ -138,8 +137,6 @@ export default function Products(props) {
     setOpen(false);
   };
 
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -210,7 +207,7 @@ export default function Products(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <PizzaPanel />
+          <ProductPanel />
           <Box pt={4}>
             <Copyright />
           </Box>

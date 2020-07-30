@@ -14,6 +14,7 @@ import {
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { deleteProductById } from "../../api/product";
+// route variable
 import { PRODUCT_BASE_URL } from "../../routes/URLMap";
 
 const useStyles = makeStyles({

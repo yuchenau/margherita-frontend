@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Grid,
+  // Grid,
   Paper,
-  Link,
+  // Link,
   TableContainer,
   Table,
   TableBody,
@@ -35,6 +35,8 @@ export default function SaleTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
+          <EachSale />
+          <EachSale />
           <EachSale />
         </TableBody>
       </Table>

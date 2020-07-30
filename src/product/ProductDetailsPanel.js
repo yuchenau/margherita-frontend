@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { loadProductById } from "../api/product";
+// child component
 import ProductDetailsCard from "./components/ProductDetailsCard";
+// api request
+import { loadProductById } from "../api/product";
 
 export default function ProductDetailsPanel(props) {
   const productId = props.productId;
@@ -14,7 +16,6 @@ export default function ProductDetailsPanel(props) {
 
   return (
     <div>
-      {/* <h1>This is pizza details for product Id: {props.productId} </h1> */}
       <ProductDetailsCard product={product} pathname={pathname} />
     </div>
   );

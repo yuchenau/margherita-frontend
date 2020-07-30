@@ -1,4 +1,4 @@
-import { get, del } from "./axios";
+import { get, del, put } from "./axios";
 
 const PRODUCT_BASE_URL = "/products";
 
@@ -9,3 +9,11 @@ export const loadProductById = (productId) =>
 
 export const deleteProductById = (productId) =>
   del(`${PRODUCT_BASE_URL}/${productId}`);
+
+export const updateProductById = (productId, product) => 
+  put(`${PRODUCT_BASE_URL}/${productId}`,{
+    name: product.name,
+    price: product.price,
+    calorie: product.calorie,
+    avatar: product.avatar
+  });

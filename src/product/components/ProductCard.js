@@ -9,10 +9,9 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
-
-import { NavLink as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
-
+import { NavLink as RouterLink } from "react-router-dom";
+// route variable
 import { PRODUCT_BASE_URL } from "../../routes/URLMap";
 
 const useStyles = makeStyles({
@@ -60,9 +59,6 @@ export default function ProductCard(props) {
         </CardActionArea>
       </Link>
       <CardActions>
-        {/* <Button size="small" variant="contained" color="default">
-          View
-        </Button> */}
         <Button
           size="small"
           variant="contained"

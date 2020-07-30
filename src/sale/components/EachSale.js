@@ -49,6 +49,7 @@ export default function EachSale(props) {
           <Select value="">
             <MenuItem value={10}>..</MenuItem>
             <MenuItem value={20}>..</MenuItem>
+            <MenuItem value={20}>..</MenuItem>
           </Select>
         </FormControl>
       </TableCell>
