@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { getOrders } from "../api/order";
 import {
   Grid,
   Paper,
@@ -12,15 +13,25 @@ import {
   TableRow,
 } from "@material-ui/core";
 import EachSale from "./components/EachSale";
+import Axios from "axios";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-});
+}, []);
 
 export default function SaleTable(props) {
   const classes = useStyles();
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    async function fetchOrders() {
+      const response = await getOrders();
+      setOrders(response);
+    }
+    fetchOrders();
+  }, [])
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -35,7 +46,10 @@ export default function SaleTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          <EachSale />
+          {orders && orders.map(order => (
+            <EachSale key={order._id} order={order}/>
+          ))}
+          {/* <EachSale /> */}
         </TableBody>
       </Table>
     </TableContainer>
