@@ -1,4 +1,4 @@
-import { get, del, put } from "./axios";
+import { get, del, put, post } from "./axios";
 
 const PRODUCT_BASE_URL = "/products";
 
@@ -17,3 +17,11 @@ export const updateProductById = (productId, product) =>
     calorie: product.calorie,
     avatar: product.avatar,
   });
+
+export const addNewProduct = (product) => 
+  post(PRODUCT_BASE_URL, {
+    name: product.name,
+    price: product.price,
+    calorie: product.calorie,
+    avatar: product.avatar,
+  })

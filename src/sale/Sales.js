@@ -14,19 +14,19 @@ import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
-
+// icons
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
-
+// child component
 import { mainListItems, secondaryListItems } from "../components/listItems";
-
-import { removeToken } from "../utils/auth";
-import { SIGNIN_URL } from "../routes/URLMap";
-
 import SalePanel from "./SalePanel";
+// token method
+import { removeToken } from "../utils/auth";
+// route variable
+import { SIGNIN_URL } from "../routes/URLMap";
 
 function Copyright() {
   return (

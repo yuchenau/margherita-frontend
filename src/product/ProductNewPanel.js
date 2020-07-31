@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Grid, Typography, Button, TextField } from "@material-ui/core";
+import { Grid, Paper, Typography, TextField, Button } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ProductEditPanel(props) {
+export default function ProductNewPanel(props) {
   const classes = useStyles();
 
   return (
@@ -28,8 +28,9 @@ export default function ProductEditPanel(props) {
       {/* <img
         className={classes.media}
         src={props.product.avatar || ""}
-        alt="pizza image"
+        alt="product figure"
       /> */}
+      {console.log(props)}
       <Grid container alignItems="center">
         <Typography className={classes.tag}>Name:</Typography>
         <TextField
@@ -73,13 +74,22 @@ export default function ProductEditPanel(props) {
           fullWidth
         />
       </Grid>
+      <Grid container alignItems="center">
+        <Typography className={classes.tag}>Image URL:</Typography>
+        <TextField
+          name="avatar"
+          value={props.product.avatar || ""}
+          className={classes.textfield}
+          fullWidth
+        />
+      </Grid>
       <Button
         variant="contained"
         color="primary"
         className={classes.button}
-        onClick={props.updateProduct}
+        onClick={props.handleSubmit}
       >
-        Save
+        Add New
       </Button>
     </Paper>
   );

@@ -19,13 +19,13 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
+// child component
 import { mainListItems, secondaryListItems } from "../components/listItems";
+import CustomerPanel from "./CustomerPanel";
 // token method
 import { removeToken } from "../utils/auth";
 // route variable
 import { SIGNIN_URL } from "../routes/URLMap";
-// child component
-import PizzaDetailsPanel from "./ProductDetailsPanel";
 
 function Copyright() {
   return (
@@ -121,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProductDetails(props) {
+export default function Customers(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -130,10 +130,6 @@ export default function ProductDetails(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  const productId = props.match.params.id;
-  const pathname = props.location.pathname;
 
   return (
     <div className={classes.root}>
@@ -205,8 +201,7 @@ export default function ProductDetails(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {/* { console.log(props)} */}
-          <PizzaDetailsPanel productId={productId} pathname={pathname} />
+          <CustomerPanel />
           <Box pt={4}>
             <Copyright />
           </Box>

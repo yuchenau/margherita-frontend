@@ -11,6 +11,7 @@ function App() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Margherita Dashboard</title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Helmet>
       <Routes />
     </div>

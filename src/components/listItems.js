@@ -1,15 +1,6 @@
 import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListSubheader from "@material-ui/core/ListSubheader";
-
-// import DashboardIcon from "@material-ui/icons/Dashboard";
-// import LocalPizzaIcon from "@material-ui/icons/LocalPizza";
-// import FastfoodIcon from "@material-ui/icons/Fastfood";
-// import SettingsInputSvideoIcon from '@material-ui/icons/SettingsInputSvideo';
-// import LocalBarIcon from "@material-ui/icons/LocalBar";
-// import StyleIcon from "@material-ui/icons/Style";
-// import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 
 import "./styles/nav.css";
 import { NavLink } from "react-router-dom";
@@ -36,17 +27,42 @@ export const mainListItems = (
       </ListItem>
     </NavLink>
 
-    <ListSubheader inset>Products</ListSubheader>
+    <NavLink to={ORDER_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <img
+            className="icon"
+            alt="icon"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACdUlEQVR4nO2aP2/UMBiHn5yOnaEs3VqgEx+AlkpsDB1YGOj1+mfka4QPUalILAiKEOrE0ErMlPIBmJCuY5curFTijiEO51pJL7m+zuu7+JGiJPYr++ffOXbsHEQikUiLSZz7VXPcUdDSBFfAGfDDzbgLnACjlhzHps3/aVPjbRNIyLr8d2PEEDgELphPFoE+0DH3q11gzQr4AOw1rUqBHXNe6zgZ7qA4j1xrYxc4te77JuAr2aMwNOkdk7fYgEAJLijW/wzYsuLyR79wENyxAncL8kM/Juk/zp0B6BkTbEbW9TKzx33reuTknWB6Qtck/AY2gMdks8Il8LGk4FPgm5hMWdaBJwXph2Qm3KPkRWgSKeOuk04tzz8pNXW6s0DriAZoC9AmGqAtQJtogLYAbaIBwuWtAOf4e78fAA8lBUsb8BxYEi7TZtnUIYa0AV/IfiVfDEwdYnQnh9TiF/BAuEyvxEFQW4A2rTdAegzwvXfo7vXdGmkDtoF3wmUW8V6qIOlHwN1784FoHdI9IN97eyRcbs5Pyvcqp0LagCHZ16WZofWzQDRAW4A2oRvgLq+DXw5L4y6vg18OS+Mur4NfDkvjfXkdeg/wTjRAW4A20YCKcVfW9R8fQrSoasAR2RQ0MNdzQ9VpcOZ2e6siMQYkZNtgPW7+n6FWnFcSYJ/xu/pbik1tKi610tKpWlQDV0SZ6CbjXuPJALe7JcBBgYj8OFCKu6xrQNVBsMd4q+upOb+y8t84aXZek3ELrnAp+oT3a0+KSyUNKKskFxFiXHqbBhfhVuKKCC3uRdVG1SEBXprzJ8o/UmjGbQJ/gc83tCMSiUQiAP8A8ZWyCeyazP4AAAAASUVORK5CYII="
+          />
+        </ListItemIcon>
+        Orders
+      </ListItem>
+    </NavLink>
+
+    <NavLink to={CUSTOMER_BASE_URL} className="nav">
+      <ListItem button>
+        <ListItemIcon>
+          <img
+            className="icon"
+            alt="icon"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAADyElEQVR4nO3aS2gdVRjA8V+aNCgkjUoptlixtkF8E6kLX3QhXUhtFVyIoigiSN2oBauLIggKrnyAGxfuVEQQhYqLqmgrGLQqviqlUrRVU8G3rdrUNHFx7uXO3NzbTHLPnCTN/OFwhztzvseZOef7zoOKioqKioqKioqFSVdifd1Y0vTfPxhNbEcyVuFB7MQIxjDRVMbxI17BdbNjZnyW4zn8Z7LDU5U3cGZ6k+NxJX4yfcez5RssS214DDbgqM6cr5cPsMnkMWPOciH+FMf5bDmMJ3BqOlemTxc+Ft/5bPkQZ6RyaLrcolzn6+VN6UN3Id6XpgEmcH0inwqzTOv4PtPyL+7Feuxtcf/VNG4VZ5N4zn+HKzKy727xzEhM4xdFkLEigowxPI8hDGf+v6rFs3MuP9hq5m98BE/jvBZy7z9BvWjEGFHPwes4u839I8Jk53chQ/wWXwtveg+Ot6n3Hta1uTcnI0FsLsPLOKjEL2C+cJ8F3gCnK6kBYkSBFIyVJTh2A6zGltrvgmSf8InujSy33zwZA/7SMLI/otyVGbntwuaMiN0FDmWuz4ooN7tEdiCi3OgNcDBzPRRRbjYl3hdRbvQG2JG5vimi3I2Z6+G2T80BBjX66lFxosFa+QFwMILMUtmhYexrHcrqxq6MvJ0dykvCkDBS143e2oGsx+VH/7UdW5eIpzQMHxemttPlMflP/9lo1iWgR74r1JeyVhWou7pF3bfRW4qlJTJgsiPH8AJuFdYPBoRItAY3C2PGsaY6u2rPzUt68KT8mFC0jAurRYuTW10CFwi7v0WdfwuXpzAs9dLSGtwoLHmvrJUu/IDvhS6zXfzJVEVFG1J3gV5cKoTD04SlLsKK8R/CivHnQiQ4abhYyOh2C8vjUw2Ao/hISIQumgV7o7AYd+ErnW+XfYk7hZAanTK6wG14FOe2uDchzOf34Bfh0yd0haXCGx9sY9d+PIKXItsbjRXCAafmN3hYyP42KpbRDQgbri/W6jbL2y4cwppTrMdv8ob+jIfQ14HcPjxck5WV/Suu7UBuVO6Qz9+PC7PBThxvph/PyKfUo7g9oo4ZsVnI2etGHcA1JepbJ2SM2fnCPSXqOyEb5A9CfiHuSnA7luPTjN4x3JBAb45LhG3vuhHD4u4DTMUS4dRYXf8RId9IQo/8kbj9ZufUxlKNnagJfCbR1HlbRunfWp/uSMX5wmnzuj3byla4SHC6rvCBshUWYIt8Vyh9x/uTmrJ3UigrQDfeFWzanUJhH67GKSmUFaRXCJEpB+KKioqTgP8BGCbuOlvSy88AAAAASUVORK5CYII="
+          />
+        </ListItemIcon>
+        Customers
+      </ListItem>
+    </NavLink>
+
     <NavLink to={PRODUCT_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
           <img
             className="icon"
             alt="icon"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAEq0lEQVR4nO2aXYhVVRTHfzNOWN3umJB9zGiFQYqOSdiXPRQ0CJGUgkEFUkSU0hdBb0GQ4VNEPYVS9NTHQySGBGWoaEjFKPbBQI3gNIQzU9HM5OSko1PTw9qns+5x73P3ufvM5c6d84fN3Xevtdfaa521vzcUKFCgQIECBQoUKFCgQIECcw4tKbR24B7gojq1JRTngH3ARF4CDwLTsywdBObl5YDxBjColrQti5FpXWAcKJv8bmAqi+AZxL3E7foc+Au4HFhnyqaAW4DvQxXpCChX4a0n+ojbdaMpawEOqfKvSf+4XphNDsDkzyjaxlBFvylhN4UKywntwChxuxYn6K8o2ncERsEnStgEcEKlw8AKw/co0KtofcB2Q1sI7Mmx7phq04DFwDIwongeDLCf1cDfuEfbnYZv0EG/GnhqBupG6SFHu19WPD8QGAWrgR6L8vPAJsPzroV+BGgDuoBTOdaNvrzLeJAZQUfKXWkG+npnEZUD4Skk1CIZi4lXjP8CJ4mnzcuAK3OqOwkMIYal4XXgRZN/D+lqcwrLEGdOI914YajArcAxYEuifBtwFFgfqsBgJTJIfghcnKBdC+xHBkYfgw4Td4NnQhs2YQSdVmWdSsG3oQoM3lEyNyRoryraVg9Zjyv+b1xMrZ4Nu9T8llRZyUIPhZZTStAuUfl2D1m7kB0iwK3ANTYmXwc0Av5Q+WUe/OPAAZNvBe63Mc0mB/So/CZgiUedPSr/QIhyPQ9HWKLKRgnfL7QCXymZybV8G3Bc0XuBO0ifyjuJZ4MzyLRaAd91gDa8Rf0OIKMzyOJjzFOeDSXgKpOfMnKHEzzrgM+oPPT4E/kALlyn+O8z9TPDFgEAjyRoeaXXUtqyGThbo9ztFnlecDkAZA0wUGODkmkMeInqY9Ny4H3sS+W0dCgpKKQLJOV0APM95dnwD7I5ynLyNA/pNslF0wvAcxb+s8heYTJr49IioBGxAXcU3KkZZ9M0mAU9KbQ1+k+zOmAY2TXa0KX/NKsDQDZvNqzSf5rZAT85yrtQA3kzO+BHR3mZePHW1A5wRQDADVGmmR1wPIXWGWWa2QEjyMLHhv93ks3sgGku3ExFmBMRAIUD+N1RviDKtAUqaAW6kYOJK5DNzBfIvVw9oPUvQlZ/e4kPaV2vRTKfYdo2Q2upvKnVaR9qrp0hpOnfD1xP5SmzTr1ZlSUd0I2cuKbtvYdMI2YCPvoHkTNBG60/ElTLeUA/csQcHVOfRq6fTgA3Aw8TH0FVO66qFS79a5B7w2pj2xBqIPTBFHZP/gosTfDeTfWvk1ey6e9GLmDT6v2SxXiAjxyCnnDwv1UnB7j076hS782I0bcLtCCrpzbgS+LwWYF907EZCUuQh0zBd3MKR4nvBn307wWeVrRJZHwA/KdBHTYniR3Q4WhAh8r3owadHDBM7AAf/YM562cncSh9aqGXkAGpWpjWig8y6n8yZ/2sIr5tmQY+Rl6SlJEB8IiijXDhJWco1lLZn9P0j5LhbcAO5GWYrb/ejoRePQa2PNNjvsa3q0p9FvobDWBMlnQeeN7X+AhvI1fKz1potxG/zWnUdA742dixPKvxBeYq/gNr3fBZyomLXgAAAABJRU5ErkJggg=="
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAC6UlEQVR4nO2ZTWgTQRTHf7G1h6rUD/xAvCgopqQUFeuhpx6LBz2ICDmJ+IEHRdCLYvEsHkTw46Sn4k1UREUPolQqtVbwA6n4gYgHQRppEdHExMNM2Nk2m8wms7uxvh8MTF5m5//m7bzZtwkIgiAIgiAIgiAIgiD8Z6QS1F4O9Oj+CPA1QV9ipQ04B+SBkm55bWtL0K/YuIK38OntcoJ+xUIXUMRb8BNg2Phc1GNmLYfxFnvTsN8w7IfidGhOnGLAQqM/ZvSfG/1FMfkCQGucYvifOp3APqNfacysYAmQBa4COYIPwHLL6bFZfe0/SwYYBArUXnRQK+g5MlE5GcV2WwOcAbZR+Yz5DIwDn4CfekwHqjDqBpZWuKaEOiiPAu/du+yOPcAk/rv4B7gL7AZWWczRiXo8VtoRU8Be5147oB24ht/ZPHARSGO3cJNWVGUYlBrXgXkuHHfBAuAhfgeHUAvvBz5q28k65j5LcBCGUKmTKB3MrOROAS3AEfxV36U65k8B9wgOwlNgcSMLaIQUqpozT+ys/u4g3uKLqFRor1NnJTBBcBDuEH9BB8CxaY4c0PZdeIv/hXoaNMpxggNQAk440AhFD/DbcGBA29eiTuryjtjhSG8+8I3gABSAXkdaVjwyxG/h1RP3ie6unKf6LhgmpjK63xCdQuUowFbD/gz37xm9VA9ACdjuWLMio8zc+gCPDfumCHRbgO9UD8DLCHR9ZAyxSbzX27RhfxCh/m1q74JQwQ/7+DAPtUHUHQGVFmUuhJwzDCMWY3ZGqM9rvEj3GfYu4B3qDkX5G0OW2jvgQ1TiywyRH8DcqISqsIXaASgBK2wnDJMCG4z+KOplJ25s/ztI204YJgCrjf7bENe5JGc5br3thDaFw35gI2oHbNa2N8ArWxGHpLCrLsv+jQGnUaV5XfRhl3PN3Kq+i9RKgQkaiF4TUAS+VBtgkwLdwDon7sTPOPAiaScEQRAEQRAEQRAEQRCair9K30i+lfVyrAAAAABJRU5ErkJggg=="
           />
         </ListItemIcon>
-        All Products
+        All Food
       </ListItem>
     </NavLink>
 
@@ -78,33 +94,4 @@ export const mainListItems = (
   </div>
 );
 
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Management</ListSubheader>
-    <NavLink to={ORDER_BASE_URL} className="nav">
-      <ListItem button>
-        <ListItemIcon>
-          <img
-            className="icon"
-            alt="icon"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAACfElEQVR4nO2bz0sVURTHP5ZQIBkYGOmignBVy8qoTakEJuX/IOLCfyVq06KiVbRoK1KLsh8LQXSprlpoLYyilaJQKO+1uPN49wnmO2/OnfMmzwcu784w95zvfN/cmblzZ8BxHOcI05Gj7VlgBOjLGScPVWADmAN+FpX0NPAC2MsEtEPZBZ4D3Qn3G4AzwKrhjh5WVoAeyQ5JD903wGi0vAAsAb+FcbQ4CVwHBqN1s8D9FMluUXe6AkykSNIikwRNNX03UiR5FCV4mSJBTl5R1/ew2UbHBAkGovpbQbuiiDUNHLjVPiQGdEX1H4J2RfE9qp9qtpHEgP8SN8BagDWdyvHuAFeVY8YsAZ80A2oacBF4BxxXjLmfPcIZfl0rYBm7QFUzmOYRsA4MZ0W7a0H49+eAr5pBtYV+zkppKGMXUMUNsBZgjaYBJ4CPNA5LNUsF+JDlUUPTgCvAbdI9H+wg3Ghd1gyqacAK4QhQvU5HVAlHwKpmUM3L4B9gSDFeIfhJ0FqANUfeAMvhcAWYAb4oaxBhPRyeAi4pahDjXUAxlnQ4vAO8VszfEj4cthZgjRtgLcAaN8BagDVugLUAa9wAawHWuAHWAg7hAjCd/Sah3Q14DzzJfpPQ7gbUqKQKnGIWV5O7wAPCk6MktLsBa8DjlAnK0gWSITFgO6qf0xaiQH9U32q2kcSA+OntPUG7oog1JXnSfJPGmdrJFElaZIrGmeTBf29eRzqTOwuMRcuLwDzwSxhHi17CW+zXonUzwHiqhD2EWWDrDyMOKssIP5hohW7gGeEzFesdrpVd4CmCl6Rr5HmZoZcwB3Ce8B2RBZvAN8KtslU3dBzHKS9/ATINAz8KAr9rAAAAAElFTkSuQmCC"
-          />
-        </ListItemIcon>
-        Recent Orders
-      </ListItem>
-    </NavLink>
-
-    <NavLink to={CUSTOMER_BASE_URL} className="nav">
-      <ListItem button>
-        <ListItemIcon>
-          <img
-            className="icon"
-            alt="icon"
-            src="data:image/png;base64,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"
-          />
-        </ListItemIcon>
-        Customers
-      </ListItem>
-    </NavLink>
-  </div>
-);
+export const secondaryListItems = <div></div>;
