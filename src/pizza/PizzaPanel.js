@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Button, Typography } from "@material-ui/core";
-// material icons
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { Grid, Typography } from "@material-ui/core";
 // child component
 import PizzaCard from "./components/PizzaCard";
 import { loadPremiumPizza } from "../api/premiumPizza";
@@ -12,7 +10,7 @@ import { loadClassicPizza } from "../api/classicPizza";
 
 import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
-import ReactLoading from "react-loading";
+import * as legoData from "../utils/legoloading.json";
 
 const useStyles = makeStyles({
   addnew: {
@@ -34,46 +32,57 @@ const useStyles = makeStyles({
   },
 });
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: legoData.default,
+  rendererSettings: {
+  preserveAspectRatio: "xMidYMid slice"
+  }
+}
+
 export default function PizzaPanel(props) {
   const classes = useStyles();
-
-  // buttons' selected state
-  const [selectPre, setSelectPre] = useState(false);
-  const [selectLoad, setSelectLoad] = useState(false);
-  const [selectFla, setSelectFla] = useState(false);
-  const [selectCla, setSelectCla] = useState(false);
-
   // pizza data
-  const [Pre, setPre] = useState({});
-  const [Load, setLoad] = useState({});
-  const [Fla, setFla] = useState({});
-  const [Cla, setCla] = useState({});
+  const [Premium, setPremium] = useState({});
+  const [Loaded, setLoaded] = useState({});
+  const [Flavourites, setFlavourites] = useState({});
+  const [Classic, setClassic] = useState({});
 
   // loading state
   const [done, setDone] = useState(undefined);
 
   useEffect(() => {
-    loadPremiumPizza().then((res) => {
-      setPre(res);
-    });
-    loadLoadedPizza().then((res) => {
-      setLoad(res);
-    });
-    loadFavouritesPizza().then((res) => {
-      setFla(res);
-    });
-    loadClassicPizza().then((res) => {
-      setCla(res);
-    });
+    setTimeout(() => {
+      loadPremiumPizza().then((res) => {
+        setPremium(res);
+      })
+      .then(loadLoadedPizza().then((res) => {
+        setLoaded(res);
+      }))
+      .then(loadFavouritesPizza().then((res) => {
+        setFlavourites(res);
+      }))
+      .then(loadClassicPizza().then((res) => {
+        setClassic(res);
+      }))
+      .then(() => {
+        setDone(true);
+      });
+    }, 5000);
   }, []);
 
   return (
     <div>
       {!done ? (
-        <ReactLoading type={"bars"} color={"black"} />
+        <FadeIn>
+        <div className="d-flex justify-content-center align-items-center">
+          <Lottie options={defaultOptions} height={200} width={200} />                      
+        </div>
+      </FadeIn>
       ) : (
         <div>
-          <Grid
+          {/* <Grid
             container
             spacing={2}
             alignItems="center"
@@ -113,15 +122,14 @@ export default function PizzaPanel(props) {
                 Classic Pizza
               </Button>
             </Grid>
-          </Grid>
+          </Grid> */}
           <Grid container>
-            {selectPre ? (
               <div>
                 <Typography variant="h5" className={classes.heading}>
                   ALL PREMIUM PIZZAS
                 </Typography>
                 <Grid container>
-                  {Pre.map((PrePizza) => (
+                  {Premium && Premium.map((PrePizza) => (
                     <Grid item key={PrePizza.name}>
                       <PizzaCard
                         avatar={PrePizza.avatar}
@@ -133,17 +141,13 @@ export default function PizzaPanel(props) {
                   ))}
                 </Grid>
               </div>
-            ) : (
-              <div></div>
-            )}
 
-            {selectLoad ? (
               <div>
                 <Typography variant="h5" className={classes.heading}>
                   ALL LOADED PIZZAS
                 </Typography>
                 <Grid container>
-                  {Load.map((LoadPizza) => (
+                  {Loaded && Loaded.map((LoadPizza) => (
                     <Grid item key={LoadPizza.name}>
                       <PizzaCard
                         avatar={LoadPizza.avatar}
@@ -155,17 +159,12 @@ export default function PizzaPanel(props) {
                   ))}
                 </Grid>
               </div>
-            ) : (
-              <div></div>
-            )}
-
-            {selectFla ? (
               <div>
                 <Typography variant="h5" className={classes.heading}>
                   ALL FAVOURITES PIZZAS
                 </Typography>
                 <Grid container>
-                  {Fla.map((FlaPizza) => (
+                  {Flavourites && Flavourites.map((FlaPizza) => (
                     <Grid item key={FlaPizza.name}>
                       <PizzaCard
                         avatar={FlaPizza.avatar}
@@ -177,17 +176,12 @@ export default function PizzaPanel(props) {
                   ))}
                 </Grid>
               </div>
-            ) : (
-              <div></div>
-            )}
-
-            {selectCla ? (
               <div>
                 <Typography variant="h5" className={classes.heading}>
                   ALL CLASSIC PIZZAS
                 </Typography>
                 <Grid container>
-                  {Cla.map((ClaPizza) => (
+                  {Classic && Classic.map((ClaPizza) => (
                     <Grid item key={ClaPizza.name}>
                       <PizzaCard
                         avatar={ClaPizza.avatar}
@@ -199,9 +193,6 @@ export default function PizzaPanel(props) {
                   ))}
                 </Grid>
               </div>
-            ) : (
-              <div></div>
-            )}
           </Grid>
         </div>
       )}

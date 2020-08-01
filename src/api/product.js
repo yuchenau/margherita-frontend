@@ -18,10 +18,10 @@ export const updateProductById = (productId, product) =>
     avatar: product.avatar,
   });
 
-export const addNewProduct = (product) => 
+export const addNewProduct = (product) =>
   post(PRODUCT_BASE_URL, {
     name: product.name,
     price: product.price,
     calorie: product.calorie,
     avatar: product.avatar,
-  })
+  });

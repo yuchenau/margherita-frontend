@@ -22,7 +22,6 @@ export default function PizzaCard(props) {
 
   return (
     <Card className={classes.root}>
-      {console.log(props)}
       <CardActionArea>
         <CardMedia
           className={classes.media}

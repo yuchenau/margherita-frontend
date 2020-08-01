@@ -44,15 +44,18 @@ export default function ProductPanel(props) {
       ) : (
         <div>
           <Grid>
-            <NavLink to={`${PRODUCT_BASE_URL}/new`} style={{ textDecoration:"none" }}>
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<AddCircleOutlineIcon />}
-              style={{ marginBottom: 20 }}
+            <NavLink
+              to={`${PRODUCT_BASE_URL}/new`}
+              style={{ textDecoration: "none" }}
             >
-              Add New Product
-            </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<AddCircleOutlineIcon />}
+                style={{ marginBottom: 20 }}
+              >
+                Add New Product
+              </Button>
             </NavLink>
           </Grid>
           <Grid container spacing={2}>

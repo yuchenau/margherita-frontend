@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -141,12 +141,11 @@ export default function ProductNew(props) {
     setProduct({ ...product, [name]: value });
   };
 
-  const createProduct = (() => {
-    addNewProduct(product)
-    .then(() => {
+  const createProduct = () => {
+    addNewProduct(product).then(() => {
       props.history.push(PRODUCT_BASE_URL);
-    })
-  })
+    });
+  };
 
   return (
     <div className={classes.root}>
@@ -220,8 +219,8 @@ export default function ProductNew(props) {
         <Container maxWidth="lg" className={classes.container}>
           <ProductNewPanel
             product={product}
-            handleInputChange = {handleInputChange}
-            handleSubmit = {createProduct}
+            handleInputChange={handleInputChange}
+            handleSubmit={createProduct}
           />
           <Box pt={4}>
             <Copyright />
