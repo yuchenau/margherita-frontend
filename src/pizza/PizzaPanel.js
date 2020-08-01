@@ -37,9 +37,9 @@ const defaultOptions = {
   autoplay: true,
   animationData: legoData.default,
   rendererSettings: {
-  preserveAspectRatio: "xMidYMid slice"
-  }
-}
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 export default function PizzaPanel(props) {
   const classes = useStyles();
@@ -54,21 +54,28 @@ export default function PizzaPanel(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      loadPremiumPizza().then((res) => {
-        setPremium(res);
-      })
-      .then(loadLoadedPizza().then((res) => {
-        setLoaded(res);
-      }))
-      .then(loadFavouritesPizza().then((res) => {
-        setFlavourites(res);
-      }))
-      .then(loadClassicPizza().then((res) => {
-        setClassic(res);
-      }))
-      .then(() => {
-        setDone(true);
-      });
+      loadPremiumPizza()
+        .then((res) => {
+          setPremium(res);
+        })
+        .then(
+          loadLoadedPizza().then((res) => {
+            setLoaded(res);
+          })
+        )
+        .then(
+          loadFavouritesPizza().then((res) => {
+            setFlavourites(res);
+          })
+        )
+        .then(
+          loadClassicPizza().then((res) => {
+            setClassic(res);
+          })
+        )
+        .then(() => {
+          setDone(true);
+        });
     }, 5000);
   }, []);
 
@@ -76,10 +83,10 @@ export default function PizzaPanel(props) {
     <div>
       {!done ? (
         <FadeIn>
-        <div className="d-flex justify-content-center align-items-center">
-          <Lottie options={defaultOptions} height={200} width={200} />                      
-        </div>
-      </FadeIn>
+          <div className="d-flex justify-content-center align-items-center">
+            <Lottie options={defaultOptions} height={200} width={200} />
+          </div>
+        </FadeIn>
       ) : (
         <div>
           {console.log(props)}
@@ -125,75 +132,75 @@ export default function PizzaPanel(props) {
             </Grid>
           </Grid> */}
           <Grid container>
-              <div>
-                <Typography variant="h5" className={classes.heading}>
-                  ALL PREMIUM PIZZAS
-                </Typography>
-                <Grid container>
-                  {Premium.map((PrePizza) => (
-                    <Grid item key={PrePizza.name}>
-                      <PizzaCard
-                        avatar={PrePizza.avatar}
-                        name={PrePizza.name}
-                        price={PrePizza.price}
-                        calorie={PrePizza.calorie}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              </div>
+            <div>
+              <Typography variant="h5" className={classes.heading}>
+                ALL PREMIUM PIZZAS
+              </Typography>
+              <Grid container>
+                {Premium.map((PrePizza) => (
+                  <Grid item key={PrePizza.name}>
+                    <PizzaCard
+                      avatar={PrePizza.avatar}
+                      name={PrePizza.name}
+                      price={PrePizza.price}
+                      calorie={PrePizza.calorie}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
 
-              <div>
-                <Typography variant="h5" className={classes.heading}>
-                  ALL LOADED PIZZAS
-                </Typography>
-                <Grid container>
-                  {Loaded.map((LoadPizza) => (
-                    <Grid item key={LoadPizza.name}>
-                      <PizzaCard
-                        avatar={LoadPizza.avatar}
-                        name={LoadPizza.name}
-                        price={LoadPizza.price}
-                        calorie={LoadPizza.calorie}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              </div>
-              <div>
-                <Typography variant="h5" className={classes.heading}>
-                  ALL FAVOURITES PIZZAS
-                </Typography>
-                <Grid container>
-                  {Flavourites.map((FlaPizza) => (
-                    <Grid item key={FlaPizza.name}>
-                      <PizzaCard
-                        avatar={FlaPizza.avatar}
-                        name={FlaPizza.name}
-                        price={FlaPizza.price}
-                        calorie={FlaPizza.calorie}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              </div>
-              <div>
-                <Typography variant="h5" className={classes.heading}>
-                  ALL CLASSIC PIZZAS
-                </Typography>
-                <Grid container>
-                  {Classic.map((ClaPizza) => (
-                    <Grid item key={ClaPizza.name}>
-                      <PizzaCard
-                        avatar={ClaPizza.avatar}
-                        name={ClaPizza.name}
-                        price={ClaPizza.price}
-                        calorie={ClaPizza.calorie}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              </div>
+            <div>
+              <Typography variant="h5" className={classes.heading}>
+                ALL LOADED PIZZAS
+              </Typography>
+              <Grid container>
+                {Loaded.map((LoadPizza) => (
+                  <Grid item key={LoadPizza.name}>
+                    <PizzaCard
+                      avatar={LoadPizza.avatar}
+                      name={LoadPizza.name}
+                      price={LoadPizza.price}
+                      calorie={LoadPizza.calorie}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+            <div>
+              <Typography variant="h5" className={classes.heading}>
+                ALL FAVOURITES PIZZAS
+              </Typography>
+              <Grid container>
+                {Flavourites.map((FlaPizza) => (
+                  <Grid item key={FlaPizza.name}>
+                    <PizzaCard
+                      avatar={FlaPizza.avatar}
+                      name={FlaPizza.name}
+                      price={FlaPizza.price}
+                      calorie={FlaPizza.calorie}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+            <div>
+              <Typography variant="h5" className={classes.heading}>
+                ALL CLASSIC PIZZAS
+              </Typography>
+              <Grid container>
+                {Classic.map((ClaPizza) => (
+                  <Grid item key={ClaPizza.name}>
+                    <PizzaCard
+                      avatar={ClaPizza.avatar}
+                      name={ClaPizza.name}
+                      price={ClaPizza.price}
+                      calorie={ClaPizza.calorie}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
           </Grid>
         </div>
       )}
