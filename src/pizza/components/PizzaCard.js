@@ -8,9 +8,8 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 280,
-    minWidth: 200,
-    margin: 5,
+    maxWidth: 250,
+    minWidth: 180,
   },
   media: {
     height: 120,
@@ -29,7 +28,7 @@ export default function PizzaCard(props) {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h6" component="h2">
             {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -45,14 +44,6 @@ export default function PizzaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {/* <CardActions>
-        <Button size="small" variant="contained" color="primary">
-          Edit
-        </Button>
-        <Button size="small" variant="contained" color="secondary">
-          Delete
-        </Button>
-      </CardActions> */}
     </Card>
   );
 }

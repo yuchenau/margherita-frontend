@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import { NavLink } from "react-router-dom";
-import { SIGNIN_URL, DASHBOARD_BASE_URL } from "../routes/URLMap";
+import { SIGNIN_URL, PRODUCT_BASE_URL } from "../routes/URLMap";
 import { signup } from "../api/auth";
 import { setToken } from "../utils/auth";
 
@@ -64,7 +64,7 @@ export default function SignUp(props) {
         setToken(token);
       })
       .then(() => {
-        props.history.push(DASHBOARD_BASE_URL);
+        props.history.push(PRODUCT_BASE_URL);
       });
   };
 

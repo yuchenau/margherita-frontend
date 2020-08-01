@@ -89,54 +89,10 @@ export default function PizzaPanel(props) {
         </FadeIn>
       ) : (
         <div>
-          {console.log(props)}
-          {/* <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            style={{ marginBottom: 15 }}
-          >
-            <Grid style={{ marginLeft: 10 }}>
-              <Button
-                className={classes.pizzaButton}
-                onClick={() => {
-                  setSelectPre(!selectPre);
-                }}
-              >
-                Premium Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                onClick={() => {
-                  setSelectLoad(!selectLoad);
-                }}
-              >
-                Loaded Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                onClick={() => {
-                  setSelectFla(!selectFla);
-                }}
-              >
-                Favourites Pizza
-              </Button>
-              <Button
-                className={classes.pizzaButton}
-                onClick={() => {
-                  setSelectCla(!selectCla);
-                }}
-              >
-                Classic Pizza
-              </Button>
-            </Grid>
-          </Grid> */}
-          <Grid container>
-            <div>
-              <Typography variant="h5" className={classes.heading}>
-                ALL PREMIUM PIZZAS
-              </Typography>
-              <Grid container>
+            <Typography variant="h5" className={classes.heading} display="block">
+              ALL PREMIUM PIZZAS
+            </Typography>
+            <Grid container spacing={2}>
                 {Premium.map((PrePizza) => (
                   <Grid item key={PrePizza.name}>
                     <PizzaCard
@@ -147,14 +103,12 @@ export default function PizzaPanel(props) {
                     />
                   </Grid>
                 ))}
-              </Grid>
-            </div>
+            </Grid>
 
-            <div>
-              <Typography variant="h5" className={classes.heading}>
-                ALL LOADED PIZZAS
-              </Typography>
-              <Grid container>
+            <Typography variant="h5" className={classes.heading}>
+              ALL LOADED PIZZAS
+            </Typography>
+            <Grid container spacing={2}>
                 {Loaded.map((LoadPizza) => (
                   <Grid item key={LoadPizza.name}>
                     <PizzaCard
@@ -165,13 +119,12 @@ export default function PizzaPanel(props) {
                     />
                   </Grid>
                 ))}
-              </Grid>
-            </div>
-            <div>
-              <Typography variant="h5" className={classes.heading}>
-                ALL FAVOURITES PIZZAS
-              </Typography>
-              <Grid container>
+            </Grid>
+
+            <Typography variant="h5" className={classes.heading}>
+              ALL FAVOURITES PIZZAS
+            </Typography>
+            <Grid container spacing={2}>
                 {Flavourites.map((FlaPizza) => (
                   <Grid item key={FlaPizza.name}>
                     <PizzaCard
@@ -182,13 +135,12 @@ export default function PizzaPanel(props) {
                     />
                   </Grid>
                 ))}
-              </Grid>
-            </div>
-            <div>
-              <Typography variant="h5" className={classes.heading}>
-                ALL CLASSIC PIZZAS
-              </Typography>
-              <Grid container>
+            </Grid>
+
+            <Typography variant="h5" className={classes.heading}>
+              ALL CLASSIC PIZZAS
+            </Typography>
+            <Grid container spacing={2}>
                 {Classic.map((ClaPizza) => (
                   <Grid item key={ClaPizza.name}>
                     <PizzaCard
@@ -199,9 +151,8 @@ export default function PizzaPanel(props) {
                     />
                   </Grid>
                 ))}
-              </Grid>
-            </div>
-          </Grid>
+            </Grid>
+            
         </div>
       )}
     </div>

@@ -15,7 +15,7 @@ import Container from "@material-ui/core/Container";
 
 import { signin } from "../api/auth";
 import { setToken } from "../utils/auth";
-import { DASHBOARD_BASE_URL, SIGNUP_URL } from "../routes/URLMap";
+import { PRODUCT_BASE_URL, SIGNUP_URL } from "../routes/URLMap";
 import { NavLink } from "react-router-dom";
 
 function Copyright() {
@@ -107,7 +107,7 @@ export default function SignIn(props) {
                   setToken(token);
                   const state = props.location;
                   const redirectTo = state && state.from;
-                  props.history.replace(redirectTo || DASHBOARD_BASE_URL);
+                  props.history.replace(redirectTo || PRODUCT_BASE_URL);
                 })
                 .catch((error) => {});
             }}
