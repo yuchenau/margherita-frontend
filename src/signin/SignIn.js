@@ -52,10 +52,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn(props) {
+  const classes = useStyles();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <Container component="main" maxWidth="xs">

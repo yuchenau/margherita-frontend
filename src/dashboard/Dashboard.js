@@ -23,9 +23,10 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import LocalPizzaOutlinedIcon from "@material-ui/icons/LocalPizzaOutlined";
 
 import { mainListItems, secondaryListItems } from "../components/listItems";
-import Chart from "../components/Chart";
-import Deposits from "../components/Deposits";
-import Orders from "../components/Orders";
+// import Chart from "../components/Chart";
+// import Deposits from "../components/Deposits";
+// import Orders from "../components/Orders";
+import PreparePanel from "./PreparePanel";
 
 import { removeToken } from "../utils/auth";
 import { SIGNIN_URL } from "../routes/URLMap";
@@ -209,16 +210,18 @@ export default function Dashboard(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            {/* <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}><Deposits /></Paper>
-            </Grid>
+            </Grid> */}
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}><Chart /></Paper>
-            </Grid>
+            </Grid> */}
             {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper className={classes.paper}><Orders /></Paper>
+              <Paper className={classes.paper}>
+                <PreparePanel />
+              </Paper>
             </Grid>
           </Grid>
           <Box pt={4}>

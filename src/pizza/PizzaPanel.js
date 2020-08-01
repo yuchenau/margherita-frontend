@@ -44,10 +44,10 @@ const defaultOptions = {
 export default function PizzaPanel(props) {
   const classes = useStyles();
   // pizza data
-  const [Premium, setPremium] = useState({});
-  const [Loaded, setLoaded] = useState({});
-  const [Flavourites, setFlavourites] = useState({});
-  const [Classic, setClassic] = useState({});
+  const [Premium, setPremium] = useState([]);
+  const [Loaded, setLoaded] = useState([]);
+  const [Flavourites, setFlavourites] = useState([]);
+  const [Classic, setClassic] = useState([]);
 
   // loading state
   const [done, setDone] = useState(undefined);
@@ -82,6 +82,7 @@ export default function PizzaPanel(props) {
       </FadeIn>
       ) : (
         <div>
+          {console.log(props)}
           {/* <Grid
             container
             spacing={2}
@@ -129,7 +130,7 @@ export default function PizzaPanel(props) {
                   ALL PREMIUM PIZZAS
                 </Typography>
                 <Grid container>
-                  {Premium && Premium.map((PrePizza) => (
+                  {Premium.map((PrePizza) => (
                     <Grid item key={PrePizza.name}>
                       <PizzaCard
                         avatar={PrePizza.avatar}
@@ -147,7 +148,7 @@ export default function PizzaPanel(props) {
                   ALL LOADED PIZZAS
                 </Typography>
                 <Grid container>
-                  {Loaded && Loaded.map((LoadPizza) => (
+                  {Loaded.map((LoadPizza) => (
                     <Grid item key={LoadPizza.name}>
                       <PizzaCard
                         avatar={LoadPizza.avatar}
@@ -164,7 +165,7 @@ export default function PizzaPanel(props) {
                   ALL FAVOURITES PIZZAS
                 </Typography>
                 <Grid container>
-                  {Flavourites && Flavourites.map((FlaPizza) => (
+                  {Flavourites.map((FlaPizza) => (
                     <Grid item key={FlaPizza.name}>
                       <PizzaCard
                         avatar={FlaPizza.avatar}
@@ -181,7 +182,7 @@ export default function PizzaPanel(props) {
                   ALL CLASSIC PIZZAS
                 </Typography>
                 <Grid container>
-                  {Classic && Classic.map((ClaPizza) => (
+                  {Classic.map((ClaPizza) => (
                     <Grid item key={ClaPizza.name}>
                       <PizzaCard
                         avatar={ClaPizza.avatar}

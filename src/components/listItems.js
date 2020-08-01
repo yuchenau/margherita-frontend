@@ -5,16 +5,16 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import "./styles/nav.css";
 import { NavLink } from "react-router-dom";
 import {
-  DASHBOARD_BASE_URL,
+  // DASHBOARD_BASE_URL,
   ORDER_BASE_URL,
-  CUSTOMER_BASE_URL,
+  // CUSTOMER_BASE_URL,
   PRODUCT_BASE_URL,
   PIZZA_BASE_URL,
 } from "../routes/URLMap";
 
 export const mainListItems = (
   <div>
-    <NavLink to={DASHBOARD_BASE_URL} className="nav">
+    {/* <NavLink to={DASHBOARD_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
           <img
@@ -25,7 +25,7 @@ export const mainListItems = (
         </ListItemIcon>
         Dashboard
       </ListItem>
-    </NavLink>
+    </NavLink> */}
 
     <NavLink to={ORDER_BASE_URL} className="nav">
       <ListItem button>
@@ -40,7 +40,7 @@ export const mainListItems = (
       </ListItem>
     </NavLink>
 
-    <NavLink to={CUSTOMER_BASE_URL} className="nav">
+    {/* <NavLink to={CUSTOMER_BASE_URL} className="nav">
       <ListItem button>
         <ListItemIcon>
           <img
@@ -51,7 +51,7 @@ export const mainListItems = (
         </ListItemIcon>
         Customers
       </ListItem>
-    </NavLink>
+    </NavLink> */}
 
     <NavLink to={PRODUCT_BASE_URL} className="nav">
       <ListItem button>

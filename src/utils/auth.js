@@ -2,6 +2,7 @@ const JWT_TOKEN_NAME = "margherita-jwt";
 
 export const isAuthenticated = () => {
   const jwt = localStorage.getItem(JWT_TOKEN_NAME);
+  // check jwt token validation (token decode)
   return !!jwt;
 };
 

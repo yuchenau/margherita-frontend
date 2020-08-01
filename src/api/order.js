@@ -17,3 +17,4 @@ export const deleteOrder = async (orderId) => {
   const { data } = await del(ORDER_BASE_URL + "/" + orderId);
   return data;
 };
+

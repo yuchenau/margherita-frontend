@@ -8,6 +8,7 @@ import {
   CUSTOMER_BASE_URL,
   PRODUCT_BASE_URL,
   PIZZA_BASE_URL,
+  DRINK_BASE_URL,
 } from "./URLMap";
 import ProtectedRoute from "./ProtectedRoute";
 import SignUp from "../signup/SignUp";
@@ -20,12 +21,13 @@ import ProductDetails from "../product/ProductDetails";
 import ProductEdit from "../product/ProductEdit";
 import ProductNew from "../product/ProductNew";
 import Pizzas from "../pizza/Pizzas";
+import Drinks from "../drink/Drinks";
 
 const Routes = () => {
   return (
     <div>
       <Switch>
-        <Redirect exact from="/" to="dashboard" />
+        <Redirect exact from="/" to="/products" />
         <Route exact path={SIGNUP_URL} component={SignUp} />
         <Route exact path={SIGNIN_URL} component={SignIn} />
         <ProtectedRoute exact path={ORDER_BASE_URL} component={Sales} />
@@ -46,8 +48,9 @@ const Routes = () => {
           path={`${PRODUCT_BASE_URL}/:id/edit`}
           component={ProductEdit}
         />
+        <ProtectedRoute exact path={PRODUCT_BASE_URL} component={Products} />
         <ProtectedRoute exact path={PIZZA_BASE_URL} component={Pizzas} />
-        <ProtectedRoute path={PRODUCT_BASE_URL} component={Products} />
+        <ProtectedRoute exact path={DRINK_BASE_URL} component={Drinks} />
       </Switch>
     </div>
   );

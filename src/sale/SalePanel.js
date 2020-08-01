@@ -55,7 +55,7 @@ export default function SaleTable(props) {
     <div>
       {!done ? (
         <FadeIn>
-          <div class="d-flex justify-content-center align-items-center">
+          <div className="d-flex justify-content-center align-items-center">
             <Lottie options={defaultOptions} height={200} width={200} />
           </div>
         </FadeIn>
